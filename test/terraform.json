@@ -1,0 +1,3483 @@
+{
+    "format_version": "0.2",
+    "terraform_version": "1.0.5",
+    "variables": {
+        "client_public_key": {
+            "value": "XSGknxaW7PwqiFD061TemUozeTxxafusIRr5dz2fUhw="
+        },
+        "mailjet_api_credentials": {
+            "value": ""
+        },
+        "vpn_enabled_ssh": {
+            "value": true
+        }
+    },
+    "planned_values": {
+        "outputs": {
+            "wireguard_eips": {
+                "sensitive": false
+            }
+        },
+        "root_module": {
+            "resources": [
+                {
+                    "address": "aws_internet_gateway.wireguard",
+                    "mode": "managed",
+                    "type": "aws_internet_gateway",
+                    "name": "wireguard",
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 0,
+                    "values": {
+                        "arn": "arn:aws:ec2:eu-west-1:200849096175:internet-gateway/igw-04f5c4930928cf65e",
+                        "id": "igw-04f5c4930928cf65e",
+                        "owner_id": "200849096175",
+                        "tags": {
+                            "Name": "wireguard"
+                        },
+                        "vpc_id": "vpc-04271c0798305c3b8"
+                    },
+                    "sensitive_values": {
+                        "tags": {}
+                    }
+                },
+                {
+                    "address": "aws_key_pair.wireguard",
+                    "mode": "managed",
+                    "type": "aws_key_pair",
+                    "name": "wireguard",
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 1,
+                    "values": {
+                        "arn": "arn:aws:ec2:eu-west-1:200849096175:key-pair/wireguard-key",
+                        "fingerprint": "69:c6:9b:60:94:87:3f:ab:3a:83:b5:6a:25:a1:38:2d",
+                        "id": "wireguard-key",
+                        "key_name": "wireguard-key",
+                        "key_name_prefix": null,
+                        "key_pair_id": "key-077f1d3065acfe401",
+                        "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCv3RRx+olw0RyENAcXkews2UYQiOhs9zkDFbJdalpkZmhA4DHGGAr12nKJW52vfkMJTlXhm7OeurfFAmULA63aCPvSdg2Yk6mkpoiR0Q9RZPeris9pqsmJWy6g29jRV8JBBq1mBWL+qfY3X08NmCI8SP0ebv56nJkMPfUNKaqwAyDoLaIfl4OObli/rpNwIaBtPu4I4GEN++TsrQoU+acbfwLvDQTEWJS0fA3fyhnaCSZR16st5wWo0u12x8vzsxn+Ut9o7CNWT6t4mFZrykarnAMJjxX9NWF8Ta1ww3xZYQtEH4MONgh+2rTLh69lUnx1I7Y9yjqrfqKFq+84v/CIlp9jjL8n+aok+bkHliErboXhVCPUHBUj1GoSnk1dn1TrNs958jN9Pb8zMs7c7oWZKRID/XknTQDVlXb8vl8UCUN8H3Dgv/GyZUaS5YGBklK4GUQRDUpfVQF9F1rt/+DHd8J08Tz/BylrmlrWImiia1yl49kMqZPUSog7zVY4UFaeolv9c8OXqy3Sza1KDAnMQXs7qwW7fLAlF+IeDUPcbVfjwR3fIsD7i7NS4sK/rjLcNa+BGTpZflvlYack4vb93MmNN3+ftYEW3c4oCzN8ago0+FJaIBKCCIjP5kqSTJ81KEAB1ioMJGYdp/a8D8NMEIe69fsWIgISub3G2euxaw== franki@MacBook-Pro.local",
+                        "tags": {}
+                    },
+                    "sensitive_values": {
+                        "tags": {}
+                    }
+                },
+                {
+                    "address": "aws_route.wireguard",
+                    "mode": "managed",
+                    "type": "aws_route",
+                    "name": "wireguard",
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 0,
+                    "values": {
+                        "destination_cidr_block": "0.0.0.0/0",
+                        "destination_ipv6_cidr_block": "",
+                        "destination_prefix_list_id": "",
+                        "egress_only_gateway_id": "",
+                        "gateway_id": "igw-04f5c4930928cf65e",
+                        "id": "r-rtb-00c111d9b42f675f51080289494",
+                        "instance_id": "",
+                        "instance_owner_id": "",
+                        "nat_gateway_id": "",
+                        "network_interface_id": "",
+                        "origin": "CreateRoute",
+                        "route_table_id": "rtb-00c111d9b42f675f5",
+                        "state": "active",
+                        "timeouts": null,
+                        "transit_gateway_id": "",
+                        "vpc_peering_connection_id": ""
+                    },
+                    "sensitive_values": {}
+                },
+                {
+                    "address": "aws_subnet.wireguard",
+                    "mode": "managed",
+                    "type": "aws_subnet",
+                    "name": "wireguard",
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 1,
+                    "values": {
+                        "arn": "arn:aws:ec2:eu-west-1:200849096175:subnet/subnet-0a4ee0b0b1f418cb7",
+                        "assign_ipv6_address_on_creation": false,
+                        "availability_zone": "eu-west-1b",
+                        "availability_zone_id": "euw1-az3",
+                        "cidr_block": "10.8.0.0/24",
+                        "id": "subnet-0a4ee0b0b1f418cb7",
+                        "ipv6_cidr_block": "",
+                        "ipv6_cidr_block_association_id": "",
+                        "map_public_ip_on_launch": false,
+                        "outpost_arn": "",
+                        "owner_id": "200849096175",
+                        "tags": {
+                            "Name": "wireguard"
+                        },
+                        "timeouts": null,
+                        "vpc_id": "vpc-04271c0798305c3b8"
+                    },
+                    "sensitive_values": {
+                        "tags": {}
+                    }
+                },
+                {
+                    "address": "aws_vpc.wireguard",
+                    "mode": "managed",
+                    "type": "aws_vpc",
+                    "name": "wireguard",
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 1,
+                    "values": {
+                        "arn": "arn:aws:ec2:eu-west-1:200849096175:vpc/vpc-04271c0798305c3b8",
+                        "assign_generated_ipv6_cidr_block": false,
+                        "cidr_block": "10.8.0.0/16",
+                        "default_network_acl_id": "acl-0fbcbf853ff1629e0",
+                        "default_route_table_id": "rtb-00c111d9b42f675f5",
+                        "default_security_group_id": "sg-0815a04ff65739981",
+                        "dhcp_options_id": "dopt-07b18497a5c308861",
+                        "enable_classiclink": false,
+                        "enable_classiclink_dns_support": false,
+                        "enable_dns_hostnames": true,
+                        "enable_dns_support": true,
+                        "id": "vpc-04271c0798305c3b8",
+                        "instance_tenancy": "default",
+                        "ipv6_association_id": "",
+                        "ipv6_cidr_block": "",
+                        "main_route_table_id": "rtb-00c111d9b42f675f5",
+                        "owner_id": "200849096175",
+                        "tags": {
+                            "Name": "wireguard"
+                        }
+                    },
+                    "sensitive_values": {
+                        "tags": {}
+                    }
+                },
+                {
+                    "address": "aws_vpc_dhcp_options.dns_resolver",
+                    "mode": "managed",
+                    "type": "aws_vpc_dhcp_options",
+                    "name": "dns_resolver",
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 0,
+                    "values": {
+                        "arn": "arn:aws:ec2:eu-west-1:200849096175:dhcp-options/dopt-07b18497a5c308861",
+                        "domain_name": null,
+                        "domain_name_servers": [
+                            "1.1.1.1",
+                            "1.0.0.1"
+                        ],
+                        "id": "dopt-07b18497a5c308861",
+                        "netbios_name_servers": null,
+                        "netbios_node_type": null,
+                        "ntp_servers": null,
+                        "owner_id": "200849096175",
+                        "tags": {}
+                    },
+                    "sensitive_values": {
+                        "domain_name_servers": [
+                            false,
+                            false
+                        ],
+                        "tags": {}
+                    }
+                },
+                {
+                    "address": "aws_vpc_dhcp_options_association.dns_resolver",
+                    "mode": "managed",
+                    "type": "aws_vpc_dhcp_options_association",
+                    "name": "dns_resolver",
+                    "provider_name": "registry.terraform.io/hashicorp/aws",
+                    "schema_version": 0,
+                    "values": {
+                        "dhcp_options_id": "dopt-07b18497a5c308861",
+                        "id": "dopt-07b18497a5c308861-vpc-04271c0798305c3b8",
+                        "vpc_id": "vpc-04271c0798305c3b8"
+                    },
+                    "sensitive_values": {}
+                }
+            ],
+            "child_modules": [
+                {
+                    "resources": [
+                        {
+                            "address": "module.wireguard.aws_autoscaling_group.wireguard_asg",
+                            "mode": "managed",
+                            "type": "aws_autoscaling_group",
+                            "name": "wireguard_asg",
+                            "provider_name": "registry.terraform.io/hashicorp/aws",
+                            "schema_version": 0,
+                            "values": {
+                                "desired_capacity": 1,
+                                "enabled_metrics": null,
+                                "force_delete": false,
+                                "health_check_grace_period": 300,
+                                "health_check_type": "EC2",
+                                "initial_lifecycle_hook": [],
+                                "launch_template": [],
+                                "max_instance_lifetime": null,
+                                "max_size": 1,
+                                "metrics_granularity": "1Minute",
+                                "min_elb_capacity": null,
+                                "min_size": 1,
+                                "mixed_instances_policy": [],
+                                "name_prefix": null,
+                                "placement_group": null,
+                                "protect_from_scale_in": false,
+                                "suspended_processes": null,
+                                "tag": [],
+                                "tags": [
+                                    {
+                                        "key": "Project",
+                                        "propagate_at_launch": "true",
+                                        "value": "wireguard"
+                                    },
+                                    {
+                                        "key": "env",
+                                        "propagate_at_launch": "true",
+                                        "value": "prod"
+                                    },
+                                    {
+                                        "key": "tf-managed",
+                                        "propagate_at_launch": "true",
+                                        "value": "True"
+                                    }
+                                ],
+                                "termination_policies": [
+                                    "OldestLaunchConfiguration",
+                                    "OldestInstance"
+                                ],
+                                "timeouts": null,
+                                "vpc_zone_identifier": [
+                                    "subnet-0a4ee0b0b1f418cb7"
+                                ],
+                                "wait_for_capacity_timeout": "10m",
+                                "wait_for_elb_capacity": null
+                            },
+                            "sensitive_values": {
+                                "availability_zones": [],
+                                "initial_lifecycle_hook": [],
+                                "launch_template": [],
+                                "load_balancers": [],
+                                "mixed_instances_policy": [],
+                                "tag": [],
+                                "tags": [
+                                    {},
+                                    {},
+                                    {},
+                                    {}
+                                ],
+                                "target_group_arns": [],
+                                "termination_policies": [
+                                    false,
+                                    false
+                                ],
+                                "vpc_zone_identifier": [
+                                    false
+                                ]
+                            }
+                        },
+                        {
+                            "address": "module.wireguard.aws_launch_configuration.wireguard_launch_config",
+                            "mode": "managed",
+                            "type": "aws_launch_configuration",
+                            "name": "wireguard_launch_config",
+                            "provider_name": "registry.terraform.io/hashicorp/aws",
+                            "schema_version": 0,
+                            "values": {
+                                "associate_public_ip_address": false,
+                                "enable_monitoring": true,
+                                "ephemeral_block_device": [],
+                                "iam_instance_profile": null,
+                                "image_id": "ami-09186ab28544ce472",
+                                "instance_type": "t2.micro",
+                                "key_name": "wireguard-key",
+                                "name_prefix": "wireguard-prod-",
+                                "placement_tenancy": null,
+                                "security_groups": [
+                                    "sg-036f38f6586e05d30"
+                                ],
+                                "spot_price": null,
+                                "user_data": "7549abf748a3eaca063ff2b3a9413615e77bd4cf",
+                                "user_data_base64": null,
+                                "vpc_classic_link_id": null,
+                                "vpc_classic_link_security_groups": null
+                            },
+                            "sensitive_values": {
+                                "ebs_block_device": [],
+                                "ephemeral_block_device": [],
+                                "root_block_device": [],
+                                "security_groups": [
+                                    false
+                                ]
+                            }
+                        },
+                        {
+                            "address": "module.wireguard.aws_security_group.sg_wireguard_admin",
+                            "mode": "managed",
+                            "type": "aws_security_group",
+                            "name": "sg_wireguard_admin",
+                            "provider_name": "registry.terraform.io/hashicorp/aws",
+                            "schema_version": 1,
+                            "values": {
+                                "arn": "arn:aws:ec2:eu-west-1:200849096175:security-group/sg-060416cd35561f0e7",
+                                "description": "Terraform Managed. Allow admin traffic to internal resources from VPN",
+                                "egress": [
+                                    {
+                                        "cidr_blocks": [
+                                            "0.0.0.0/0"
+                                        ],
+                                        "description": "",
+                                        "from_port": 0,
+                                        "ipv6_cidr_blocks": [],
+                                        "prefix_list_ids": [],
+                                        "protocol": "-1",
+                                        "security_groups": [],
+                                        "self": false,
+                                        "to_port": 0
+                                    }
+                                ],
+                                "id": "sg-060416cd35561f0e7",
+                                "ingress": [
+                                    {
+                                        "cidr_blocks": [],
+                                        "description": "",
+                                        "from_port": 0,
+                                        "ipv6_cidr_blocks": [],
+                                        "prefix_list_ids": [],
+                                        "protocol": "-1",
+                                        "security_groups": [
+                                            "sg-036f38f6586e05d30"
+                                        ],
+                                        "self": false,
+                                        "to_port": 0
+                                    },
+                                    {
+                                        "cidr_blocks": [],
+                                        "description": "",
+                                        "from_port": 8,
+                                        "ipv6_cidr_blocks": [],
+                                        "prefix_list_ids": [],
+                                        "protocol": "icmp",
+                                        "security_groups": [
+                                            "sg-036f38f6586e05d30"
+                                        ],
+                                        "self": false,
+                                        "to_port": 0
+                                    }
+                                ],
+                                "name": "wireguard-prod-admin",
+                                "name_prefix": null,
+                                "owner_id": "200849096175",
+                                "revoke_rules_on_delete": false,
+                                "tags": {
+                                    "Name": "wireguard-prod-admin",
+                                    "Project": "vpn",
+                                    "env": "prod",
+                                    "tf-managed": "True"
+                                },
+                                "timeouts": null,
+                                "vpc_id": "vpc-04271c0798305c3b8"
+                            },
+                            "sensitive_values": {
+                                "egress": [
+                                    {
+                                        "cidr_blocks": [
+                                            false
+                                        ],
+                                        "ipv6_cidr_blocks": [],
+                                        "prefix_list_ids": [],
+                                        "security_groups": []
+                                    }
+                                ],
+                                "ingress": [
+                                    {
+                                        "cidr_blocks": [],
+                                        "ipv6_cidr_blocks": [],
+                                        "prefix_list_ids": [],
+                                        "security_groups": [
+                                            false
+                                        ]
+                                    },
+                                    {
+                                        "cidr_blocks": [],
+                                        "ipv6_cidr_blocks": [],
+                                        "prefix_list_ids": [],
+                                        "security_groups": [
+                                            false
+                                        ]
+                                    }
+                                ],
+                                "tags": {}
+                            }
+                        },
+                        {
+                            "address": "module.wireguard.aws_security_group.sg_wireguard_external",
+                            "mode": "managed",
+                            "type": "aws_security_group",
+                            "name": "sg_wireguard_external",
+                            "provider_name": "registry.terraform.io/hashicorp/aws",
+                            "schema_version": 1,
+                            "values": {
+                                "arn": "arn:aws:ec2:eu-west-1:200849096175:security-group/sg-036f38f6586e05d30",
+                                "description": "Terraform Managed. Allow Wireguard client traffic from internet.",
+                                "egress": [
+                                    {
+                                        "cidr_blocks": [
+                                            "0.0.0.0/0"
+                                        ],
+                                        "description": "",
+                                        "from_port": 0,
+                                        "ipv6_cidr_blocks": [],
+                                        "prefix_list_ids": [],
+                                        "protocol": "-1",
+                                        "security_groups": [],
+                                        "self": false,
+                                        "to_port": 0
+                                    }
+                                ],
+                                "id": "sg-036f38f6586e05d30",
+                                "ingress": [
+                                    {
+                                        "cidr_blocks": [
+                                            "0.0.0.0/0"
+                                        ],
+                                        "description": "",
+                                        "from_port": 51820,
+                                        "ipv6_cidr_blocks": [],
+                                        "prefix_list_ids": [],
+                                        "protocol": "udp",
+                                        "security_groups": [],
+                                        "self": false,
+                                        "to_port": 51820
+                                    },
+                                    {
+                                        "cidr_blocks": [
+                                            "10.8.0.0/24"
+                                        ],
+                                        "description": "",
+                                        "from_port": 22,
+                                        "ipv6_cidr_blocks": [],
+                                        "prefix_list_ids": [],
+                                        "protocol": "tcp",
+                                        "security_groups": [],
+                                        "self": false,
+                                        "to_port": 22
+                                    }
+                                ],
+                                "name": "wireguard-prod-external",
+                                "name_prefix": null,
+                                "owner_id": "200849096175",
+                                "revoke_rules_on_delete": false,
+                                "tags": {
+                                    "Name": "wireguard-prod-external",
+                                    "Project": "wireguard",
+                                    "env": "prod",
+                                    "tf-managed": "True"
+                                },
+                                "timeouts": null,
+                                "vpc_id": "vpc-04271c0798305c3b8"
+                            },
+                            "sensitive_values": {
+                                "egress": [
+                                    {
+                                        "cidr_blocks": [
+                                            false
+                                        ],
+                                        "ipv6_cidr_blocks": [],
+                                        "prefix_list_ids": [],
+                                        "security_groups": []
+                                    }
+                                ],
+                                "ingress": [
+                                    {
+                                        "cidr_blocks": [
+                                            false
+                                        ],
+                                        "ipv6_cidr_blocks": [],
+                                        "prefix_list_ids": [],
+                                        "security_groups": []
+                                    },
+                                    {
+                                        "cidr_blocks": [
+                                            false
+                                        ],
+                                        "ipv6_cidr_blocks": [],
+                                        "prefix_list_ids": [],
+                                        "security_groups": []
+                                    }
+                                ],
+                                "tags": {}
+                            }
+                        },
+                        {
+                            "address": "module.wireguard.data.aws_instances.wireguards",
+                            "mode": "data",
+                            "type": "aws_instances",
+                            "name": "wireguards",
+                            "provider_name": "registry.terraform.io/hashicorp/aws",
+                            "schema_version": 0,
+                            "values": {
+                                "filter": [],
+                                "instance_state_names": null,
+                                "instance_tags": {
+                                    "Project": "wireguard"
+                                }
+                            },
+                            "sensitive_values": {
+                                "filter": [],
+                                "ids": [],
+                                "instance_tags": {},
+                                "private_ips": [],
+                                "public_ips": []
+                            }
+                        }
+                    ],
+                    "address": "module.wireguard"
+                }
+            ]
+        }
+    },
+    "resource_drift": [
+        {
+            "address": "aws_vpc.wireguard",
+            "mode": "managed",
+            "type": "aws_vpc",
+            "name": "wireguard",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+                "actions": [
+                    "update"
+                ],
+                "before": {
+                    "arn": "arn:aws:ec2:eu-west-1:200849096175:vpc/vpc-04271c0798305c3b8",
+                    "assign_generated_ipv6_cidr_block": false,
+                    "cidr_block": "10.8.0.0/16",
+                    "default_network_acl_id": "acl-0fbcbf853ff1629e0",
+                    "default_route_table_id": "rtb-00c111d9b42f675f5",
+                    "default_security_group_id": "sg-0815a04ff65739981",
+                    "dhcp_options_id": "dopt-d84e44bc",
+                    "enable_classiclink": false,
+                    "enable_classiclink_dns_support": false,
+                    "enable_dns_hostnames": true,
+                    "enable_dns_support": true,
+                    "id": "vpc-04271c0798305c3b8",
+                    "instance_tenancy": "default",
+                    "ipv6_association_id": "",
+                    "ipv6_cidr_block": "",
+                    "main_route_table_id": "rtb-00c111d9b42f675f5",
+                    "owner_id": "200849096175",
+                    "tags": {
+                        "Name": "wireguard"
+                    }
+                },
+                "after": {
+                    "arn": "arn:aws:ec2:eu-west-1:200849096175:vpc/vpc-04271c0798305c3b8",
+                    "assign_generated_ipv6_cidr_block": false,
+                    "cidr_block": "10.8.0.0/16",
+                    "default_network_acl_id": "acl-0fbcbf853ff1629e0",
+                    "default_route_table_id": "rtb-00c111d9b42f675f5",
+                    "default_security_group_id": "sg-0815a04ff65739981",
+                    "dhcp_options_id": "dopt-07b18497a5c308861",
+                    "enable_classiclink": false,
+                    "enable_classiclink_dns_support": false,
+                    "enable_dns_hostnames": true,
+                    "enable_dns_support": true,
+                    "id": "vpc-04271c0798305c3b8",
+                    "instance_tenancy": "default",
+                    "ipv6_association_id": "",
+                    "ipv6_cidr_block": "",
+                    "main_route_table_id": "rtb-00c111d9b42f675f5",
+                    "owner_id": "200849096175",
+                    "tags": {
+                        "Name": "wireguard"
+                    }
+                },
+                "before_sensitive": {
+                    "tags": {}
+                },
+                "after_sensitive": {
+                    "tags": {}
+                }
+            }
+        },
+        {
+            "address": "aws_vpc_dhcp_options.dns_resolver",
+            "mode": "managed",
+            "type": "aws_vpc_dhcp_options",
+            "name": "dns_resolver",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+                "actions": [
+                    "update"
+                ],
+                "before": {
+                    "arn": "arn:aws:ec2:eu-west-1:200849096175:dhcp-options/dopt-07b18497a5c308861",
+                    "domain_name": null,
+                    "domain_name_servers": [
+                        "1.1.1.1",
+                        "1.0.0.1"
+                    ],
+                    "id": "dopt-07b18497a5c308861",
+                    "netbios_name_servers": null,
+                    "netbios_node_type": null,
+                    "ntp_servers": null,
+                    "owner_id": "200849096175",
+                    "tags": null
+                },
+                "after": {
+                    "arn": "arn:aws:ec2:eu-west-1:200849096175:dhcp-options/dopt-07b18497a5c308861",
+                    "domain_name": null,
+                    "domain_name_servers": [
+                        "1.1.1.1",
+                        "1.0.0.1"
+                    ],
+                    "id": "dopt-07b18497a5c308861",
+                    "netbios_name_servers": null,
+                    "netbios_node_type": null,
+                    "ntp_servers": null,
+                    "owner_id": "200849096175",
+                    "tags": {}
+                },
+                "before_sensitive": {
+                    "domain_name_servers": [
+                        false,
+                        false
+                    ]
+                },
+                "after_sensitive": {
+                    "domain_name_servers": [
+                        false,
+                        false
+                    ],
+                    "tags": {}
+                }
+            }
+        },
+        {
+            "address": "aws_key_pair.wireguard",
+            "mode": "managed",
+            "type": "aws_key_pair",
+            "name": "wireguard",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+                "actions": [
+                    "update"
+                ],
+                "before": {
+                    "arn": "arn:aws:ec2:eu-west-1:200849096175:key-pair/wireguard-key",
+                    "fingerprint": "69:c6:9b:60:94:87:3f:ab:3a:83:b5:6a:25:a1:38:2d",
+                    "id": "wireguard-key",
+                    "key_name": "wireguard-key",
+                    "key_name_prefix": null,
+                    "key_pair_id": "key-077f1d3065acfe401",
+                    "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCv3RRx+olw0RyENAcXkews2UYQiOhs9zkDFbJdalpkZmhA4DHGGAr12nKJW52vfkMJTlXhm7OeurfFAmULA63aCPvSdg2Yk6mkpoiR0Q9RZPeris9pqsmJWy6g29jRV8JBBq1mBWL+qfY3X08NmCI8SP0ebv56nJkMPfUNKaqwAyDoLaIfl4OObli/rpNwIaBtPu4I4GEN++TsrQoU+acbfwLvDQTEWJS0fA3fyhnaCSZR16st5wWo0u12x8vzsxn+Ut9o7CNWT6t4mFZrykarnAMJjxX9NWF8Ta1ww3xZYQtEH4MONgh+2rTLh69lUnx1I7Y9yjqrfqKFq+84v/CIlp9jjL8n+aok+bkHliErboXhVCPUHBUj1GoSnk1dn1TrNs958jN9Pb8zMs7c7oWZKRID/XknTQDVlXb8vl8UCUN8H3Dgv/GyZUaS5YGBklK4GUQRDUpfVQF9F1rt/+DHd8J08Tz/BylrmlrWImiia1yl49kMqZPUSog7zVY4UFaeolv9c8OXqy3Sza1KDAnMQXs7qwW7fLAlF+IeDUPcbVfjwR3fIsD7i7NS4sK/rjLcNa+BGTpZflvlYack4vb93MmNN3+ftYEW3c4oCzN8ago0+FJaIBKCCIjP5kqSTJ81KEAB1ioMJGYdp/a8D8NMEIe69fsWIgISub3G2euxaw== franki@MacBook-Pro.local",
+                    "tags": null
+                },
+                "after": {
+                    "arn": "arn:aws:ec2:eu-west-1:200849096175:key-pair/wireguard-key",
+                    "fingerprint": "69:c6:9b:60:94:87:3f:ab:3a:83:b5:6a:25:a1:38:2d",
+                    "id": "wireguard-key",
+                    "key_name": "wireguard-key",
+                    "key_name_prefix": null,
+                    "key_pair_id": "key-077f1d3065acfe401",
+                    "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCv3RRx+olw0RyENAcXkews2UYQiOhs9zkDFbJdalpkZmhA4DHGGAr12nKJW52vfkMJTlXhm7OeurfFAmULA63aCPvSdg2Yk6mkpoiR0Q9RZPeris9pqsmJWy6g29jRV8JBBq1mBWL+qfY3X08NmCI8SP0ebv56nJkMPfUNKaqwAyDoLaIfl4OObli/rpNwIaBtPu4I4GEN++TsrQoU+acbfwLvDQTEWJS0fA3fyhnaCSZR16st5wWo0u12x8vzsxn+Ut9o7CNWT6t4mFZrykarnAMJjxX9NWF8Ta1ww3xZYQtEH4MONgh+2rTLh69lUnx1I7Y9yjqrfqKFq+84v/CIlp9jjL8n+aok+bkHliErboXhVCPUHBUj1GoSnk1dn1TrNs958jN9Pb8zMs7c7oWZKRID/XknTQDVlXb8vl8UCUN8H3Dgv/GyZUaS5YGBklK4GUQRDUpfVQF9F1rt/+DHd8J08Tz/BylrmlrWImiia1yl49kMqZPUSog7zVY4UFaeolv9c8OXqy3Sza1KDAnMQXs7qwW7fLAlF+IeDUPcbVfjwR3fIsD7i7NS4sK/rjLcNa+BGTpZflvlYack4vb93MmNN3+ftYEW3c4oCzN8ago0+FJaIBKCCIjP5kqSTJ81KEAB1ioMJGYdp/a8D8NMEIe69fsWIgISub3G2euxaw== franki@MacBook-Pro.local",
+                    "tags": {}
+                },
+                "before_sensitive": {},
+                "after_sensitive": {
+                    "tags": {}
+                }
+            }
+        },
+        {
+            "address": "module.wireguard.aws_launch_configuration.wireguard_launch_config",
+            "module_address": "module.wireguard",
+            "mode": "managed",
+            "type": "aws_launch_configuration",
+            "name": "wireguard_launch_config",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+                "actions": [
+                    "update"
+                ],
+                "before": {
+                    "arn": "arn:aws:autoscaling:eu-west-1:200849096175:launchConfiguration:f8b63575-f390-4a49-add5-ace4d3dec81b:launchConfigurationName/wireguard-prod-20210825125556421700000001",
+                    "associate_public_ip_address": true,
+                    "ebs_block_device": [],
+                    "ebs_optimized": false,
+                    "enable_monitoring": true,
+                    "ephemeral_block_device": [],
+                    "iam_instance_profile": "",
+                    "id": "wireguard-prod-20210825125556421700000001",
+                    "image_id": "ami-09186ab28544ce472",
+                    "instance_type": "t2.micro",
+                    "key_name": "wireguard-key",
+                    "name": "wireguard-prod-20210825125556421700000001",
+                    "name_prefix": "wireguard-prod-",
+                    "placement_tenancy": null,
+                    "root_block_device": [],
+                    "security_groups": [
+                        "sg-036f38f6586e05d30"
+                    ],
+                    "spot_price": "",
+                    "user_data": "7549abf748a3eaca063ff2b3a9413615e77bd4cf",
+                    "user_data_base64": null,
+                    "vpc_classic_link_id": "",
+                    "vpc_classic_link_security_groups": null
+                },
+                "after": {
+                    "arn": "arn:aws:autoscaling:eu-west-1:200849096175:launchConfiguration:f8b63575-f390-4a49-add5-ace4d3dec81b:launchConfigurationName/wireguard-prod-20210825125556421700000001",
+                    "associate_public_ip_address": true,
+                    "ebs_block_device": [],
+                    "ebs_optimized": false,
+                    "enable_monitoring": true,
+                    "ephemeral_block_device": [],
+                    "iam_instance_profile": "",
+                    "id": "wireguard-prod-20210825125556421700000001",
+                    "image_id": "ami-09186ab28544ce472",
+                    "instance_type": "t2.micro",
+                    "key_name": "wireguard-key",
+                    "name": "wireguard-prod-20210825125556421700000001",
+                    "name_prefix": "wireguard-prod-",
+                    "placement_tenancy": null,
+                    "root_block_device": [],
+                    "security_groups": [
+                        "sg-036f38f6586e05d30"
+                    ],
+                    "spot_price": "",
+                    "user_data": "7549abf748a3eaca063ff2b3a9413615e77bd4cf",
+                    "user_data_base64": null,
+                    "vpc_classic_link_id": "",
+                    "vpc_classic_link_security_groups": []
+                },
+                "before_sensitive": {
+                    "ebs_block_device": [],
+                    "ephemeral_block_device": [],
+                    "root_block_device": [],
+                    "security_groups": [
+                        false
+                    ]
+                },
+                "after_sensitive": {
+                    "ebs_block_device": [],
+                    "ephemeral_block_device": [],
+                    "root_block_device": [],
+                    "security_groups": [
+                        false
+                    ],
+                    "vpc_classic_link_security_groups": []
+                }
+            }
+        },
+        {
+            "address": "module.wireguard.aws_autoscaling_group.wireguard_asg",
+            "module_address": "module.wireguard",
+            "mode": "managed",
+            "type": "aws_autoscaling_group",
+            "name": "wireguard_asg",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+                "actions": [
+                    "update"
+                ],
+                "before": {
+                    "arn": "arn:aws:autoscaling:eu-west-1:200849096175:autoScalingGroup:1c7e14ad-8742-47c1-a914-15874c6efb48:autoScalingGroupName/wireguard-prod-20210825125556421700000001",
+                    "availability_zones": [
+                        "eu-west-1b"
+                    ],
+                    "default_cooldown": 300,
+                    "desired_capacity": 1,
+                    "enabled_metrics": null,
+                    "force_delete": false,
+                    "health_check_grace_period": 300,
+                    "health_check_type": "EC2",
+                    "id": "wireguard-prod-20210825125556421700000001",
+                    "initial_lifecycle_hook": [],
+                    "launch_configuration": "wireguard-prod-20210825125556421700000001",
+                    "launch_template": [],
+                    "load_balancers": [],
+                    "max_instance_lifetime": 0,
+                    "max_size": 1,
+                    "metrics_granularity": "1Minute",
+                    "min_elb_capacity": null,
+                    "min_size": 1,
+                    "mixed_instances_policy": [],
+                    "name": "wireguard-prod-20210825125556421700000001",
+                    "name_prefix": null,
+                    "placement_group": "",
+                    "protect_from_scale_in": false,
+                    "service_linked_role_arn": "arn:aws:iam::200849096175:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling",
+                    "suspended_processes": null,
+                    "tag": [],
+                    "tags": [
+                        {
+                            "key": "Name",
+                            "propagate_at_launch": "true",
+                            "value": "wireguard-prod-20210825125556421700000001"
+                        },
+                        {
+                            "key": "Project",
+                            "propagate_at_launch": "true",
+                            "value": "wireguard"
+                        },
+                        {
+                            "key": "env",
+                            "propagate_at_launch": "true",
+                            "value": "prod"
+                        },
+                        {
+                            "key": "tf-managed",
+                            "propagate_at_launch": "true",
+                            "value": "True"
+                        }
+                    ],
+                    "target_group_arns": [],
+                    "termination_policies": [
+                        "OldestLaunchConfiguration",
+                        "OldestInstance"
+                    ],
+                    "timeouts": null,
+                    "vpc_zone_identifier": [
+                        "subnet-0a4ee0b0b1f418cb7"
+                    ],
+                    "wait_for_capacity_timeout": "10m",
+                    "wait_for_elb_capacity": null
+                },
+                "after": {
+                    "arn": "arn:aws:autoscaling:eu-west-1:200849096175:autoScalingGroup:1c7e14ad-8742-47c1-a914-15874c6efb48:autoScalingGroupName/wireguard-prod-20210825125556421700000001",
+                    "availability_zones": [
+                        "eu-west-1b"
+                    ],
+                    "default_cooldown": 300,
+                    "desired_capacity": 1,
+                    "enabled_metrics": [],
+                    "force_delete": false,
+                    "health_check_grace_period": 300,
+                    "health_check_type": "EC2",
+                    "id": "wireguard-prod-20210825125556421700000001",
+                    "initial_lifecycle_hook": [],
+                    "launch_configuration": "wireguard-prod-20210825125556421700000001",
+                    "launch_template": [],
+                    "load_balancers": [],
+                    "max_instance_lifetime": 0,
+                    "max_size": 1,
+                    "metrics_granularity": "1Minute",
+                    "min_elb_capacity": null,
+                    "min_size": 1,
+                    "mixed_instances_policy": [],
+                    "name": "wireguard-prod-20210825125556421700000001",
+                    "name_prefix": null,
+                    "placement_group": "",
+                    "protect_from_scale_in": false,
+                    "service_linked_role_arn": "arn:aws:iam::200849096175:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling",
+                    "suspended_processes": [],
+                    "tag": [],
+                    "tags": [
+                        {
+                            "key": "Name",
+                            "propagate_at_launch": "true",
+                            "value": "wireguard-prod-20210825125556421700000001"
+                        },
+                        {
+                            "key": "Project",
+                            "propagate_at_launch": "true",
+                            "value": "wireguard"
+                        },
+                        {
+                            "key": "env",
+                            "propagate_at_launch": "true",
+                            "value": "prod"
+                        },
+                        {
+                            "key": "tf-managed",
+                            "propagate_at_launch": "true",
+                            "value": "True"
+                        }
+                    ],
+                    "target_group_arns": [],
+                    "termination_policies": [
+                        "OldestLaunchConfiguration",
+                        "OldestInstance"
+                    ],
+                    "timeouts": null,
+                    "vpc_zone_identifier": [
+                        "subnet-0a4ee0b0b1f418cb7"
+                    ],
+                    "wait_for_capacity_timeout": "10m",
+                    "wait_for_elb_capacity": null
+                },
+                "before_sensitive": {
+                    "availability_zones": [
+                        false
+                    ],
+                    "initial_lifecycle_hook": [],
+                    "launch_template": [],
+                    "load_balancers": [],
+                    "mixed_instances_policy": [],
+                    "tag": [],
+                    "tags": [
+                        {},
+                        {},
+                        {},
+                        {}
+                    ],
+                    "target_group_arns": [],
+                    "termination_policies": [
+                        false,
+                        false
+                    ],
+                    "vpc_zone_identifier": [
+                        false
+                    ]
+                },
+                "after_sensitive": {
+                    "availability_zones": [
+                        false
+                    ],
+                    "enabled_metrics": [],
+                    "initial_lifecycle_hook": [],
+                    "launch_template": [],
+                    "load_balancers": [],
+                    "mixed_instances_policy": [],
+                    "suspended_processes": [],
+                    "tag": [],
+                    "tags": [
+                        {},
+                        {},
+                        {},
+                        {}
+                    ],
+                    "target_group_arns": [],
+                    "termination_policies": [
+                        false,
+                        false
+                    ],
+                    "vpc_zone_identifier": [
+                        false
+                    ]
+                }
+            }
+        }
+    ],
+    "resource_changes": [
+        {
+            "address": "aws_internet_gateway.wireguard",
+            "mode": "managed",
+            "type": "aws_internet_gateway",
+            "name": "wireguard",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+                "actions": [
+                    "no-op"
+                ],
+                "before": {
+                    "arn": "arn:aws:ec2:eu-west-1:200849096175:internet-gateway/igw-04f5c4930928cf65e",
+                    "id": "igw-04f5c4930928cf65e",
+                    "owner_id": "200849096175",
+                    "tags": {
+                        "Name": "wireguard"
+                    },
+                    "vpc_id": "vpc-04271c0798305c3b8"
+                },
+                "after": {
+                    "arn": "arn:aws:ec2:eu-west-1:200849096175:internet-gateway/igw-04f5c4930928cf65e",
+                    "id": "igw-04f5c4930928cf65e",
+                    "owner_id": "200849096175",
+                    "tags": {
+                        "Name": "wireguard"
+                    },
+                    "vpc_id": "vpc-04271c0798305c3b8"
+                },
+                "after_unknown": {},
+                "before_sensitive": {
+                    "tags": {}
+                },
+                "after_sensitive": {
+                    "tags": {}
+                }
+            }
+        },
+        {
+            "address": "aws_key_pair.wireguard",
+            "mode": "managed",
+            "type": "aws_key_pair",
+            "name": "wireguard",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+                "actions": [
+                    "no-op"
+                ],
+                "before": {
+                    "arn": "arn:aws:ec2:eu-west-1:200849096175:key-pair/wireguard-key",
+                    "fingerprint": "69:c6:9b:60:94:87:3f:ab:3a:83:b5:6a:25:a1:38:2d",
+                    "id": "wireguard-key",
+                    "key_name": "wireguard-key",
+                    "key_name_prefix": null,
+                    "key_pair_id": "key-077f1d3065acfe401",
+                    "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCv3RRx+olw0RyENAcXkews2UYQiOhs9zkDFbJdalpkZmhA4DHGGAr12nKJW52vfkMJTlXhm7OeurfFAmULA63aCPvSdg2Yk6mkpoiR0Q9RZPeris9pqsmJWy6g29jRV8JBBq1mBWL+qfY3X08NmCI8SP0ebv56nJkMPfUNKaqwAyDoLaIfl4OObli/rpNwIaBtPu4I4GEN++TsrQoU+acbfwLvDQTEWJS0fA3fyhnaCSZR16st5wWo0u12x8vzsxn+Ut9o7CNWT6t4mFZrykarnAMJjxX9NWF8Ta1ww3xZYQtEH4MONgh+2rTLh69lUnx1I7Y9yjqrfqKFq+84v/CIlp9jjL8n+aok+bkHliErboXhVCPUHBUj1GoSnk1dn1TrNs958jN9Pb8zMs7c7oWZKRID/XknTQDVlXb8vl8UCUN8H3Dgv/GyZUaS5YGBklK4GUQRDUpfVQF9F1rt/+DHd8J08Tz/BylrmlrWImiia1yl49kMqZPUSog7zVY4UFaeolv9c8OXqy3Sza1KDAnMQXs7qwW7fLAlF+IeDUPcbVfjwR3fIsD7i7NS4sK/rjLcNa+BGTpZflvlYack4vb93MmNN3+ftYEW3c4oCzN8ago0+FJaIBKCCIjP5kqSTJ81KEAB1ioMJGYdp/a8D8NMEIe69fsWIgISub3G2euxaw== franki@MacBook-Pro.local",
+                    "tags": {}
+                },
+                "after": {
+                    "arn": "arn:aws:ec2:eu-west-1:200849096175:key-pair/wireguard-key",
+                    "fingerprint": "69:c6:9b:60:94:87:3f:ab:3a:83:b5:6a:25:a1:38:2d",
+                    "id": "wireguard-key",
+                    "key_name": "wireguard-key",
+                    "key_name_prefix": null,
+                    "key_pair_id": "key-077f1d3065acfe401",
+                    "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCv3RRx+olw0RyENAcXkews2UYQiOhs9zkDFbJdalpkZmhA4DHGGAr12nKJW52vfkMJTlXhm7OeurfFAmULA63aCPvSdg2Yk6mkpoiR0Q9RZPeris9pqsmJWy6g29jRV8JBBq1mBWL+qfY3X08NmCI8SP0ebv56nJkMPfUNKaqwAyDoLaIfl4OObli/rpNwIaBtPu4I4GEN++TsrQoU+acbfwLvDQTEWJS0fA3fyhnaCSZR16st5wWo0u12x8vzsxn+Ut9o7CNWT6t4mFZrykarnAMJjxX9NWF8Ta1ww3xZYQtEH4MONgh+2rTLh69lUnx1I7Y9yjqrfqKFq+84v/CIlp9jjL8n+aok+bkHliErboXhVCPUHBUj1GoSnk1dn1TrNs958jN9Pb8zMs7c7oWZKRID/XknTQDVlXb8vl8UCUN8H3Dgv/GyZUaS5YGBklK4GUQRDUpfVQF9F1rt/+DHd8J08Tz/BylrmlrWImiia1yl49kMqZPUSog7zVY4UFaeolv9c8OXqy3Sza1KDAnMQXs7qwW7fLAlF+IeDUPcbVfjwR3fIsD7i7NS4sK/rjLcNa+BGTpZflvlYack4vb93MmNN3+ftYEW3c4oCzN8ago0+FJaIBKCCIjP5kqSTJ81KEAB1ioMJGYdp/a8D8NMEIe69fsWIgISub3G2euxaw== franki@MacBook-Pro.local",
+                    "tags": {}
+                },
+                "after_unknown": {},
+                "before_sensitive": {
+                    "tags": {}
+                },
+                "after_sensitive": {
+                    "tags": {}
+                }
+            }
+        },
+        {
+            "address": "aws_route.wireguard",
+            "mode": "managed",
+            "type": "aws_route",
+            "name": "wireguard",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+                "actions": [
+                    "no-op"
+                ],
+                "before": {
+                    "destination_cidr_block": "0.0.0.0/0",
+                    "destination_ipv6_cidr_block": "",
+                    "destination_prefix_list_id": "",
+                    "egress_only_gateway_id": "",
+                    "gateway_id": "igw-04f5c4930928cf65e",
+                    "id": "r-rtb-00c111d9b42f675f51080289494",
+                    "instance_id": "",
+                    "instance_owner_id": "",
+                    "nat_gateway_id": "",
+                    "network_interface_id": "",
+                    "origin": "CreateRoute",
+                    "route_table_id": "rtb-00c111d9b42f675f5",
+                    "state": "active",
+                    "timeouts": null,
+                    "transit_gateway_id": "",
+                    "vpc_peering_connection_id": ""
+                },
+                "after": {
+                    "destination_cidr_block": "0.0.0.0/0",
+                    "destination_ipv6_cidr_block": "",
+                    "destination_prefix_list_id": "",
+                    "egress_only_gateway_id": "",
+                    "gateway_id": "igw-04f5c4930928cf65e",
+                    "id": "r-rtb-00c111d9b42f675f51080289494",
+                    "instance_id": "",
+                    "instance_owner_id": "",
+                    "nat_gateway_id": "",
+                    "network_interface_id": "",
+                    "origin": "CreateRoute",
+                    "route_table_id": "rtb-00c111d9b42f675f5",
+                    "state": "active",
+                    "timeouts": null,
+                    "transit_gateway_id": "",
+                    "vpc_peering_connection_id": ""
+                },
+                "after_unknown": {},
+                "before_sensitive": {},
+                "after_sensitive": {}
+            }
+        },
+        {
+            "address": "aws_subnet.wireguard",
+            "mode": "managed",
+            "type": "aws_subnet",
+            "name": "wireguard",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+                "actions": [
+                    "no-op"
+                ],
+                "before": {
+                    "arn": "arn:aws:ec2:eu-west-1:200849096175:subnet/subnet-0a4ee0b0b1f418cb7",
+                    "assign_ipv6_address_on_creation": false,
+                    "availability_zone": "eu-west-1b",
+                    "availability_zone_id": "euw1-az3",
+                    "cidr_block": "10.8.0.0/24",
+                    "id": "subnet-0a4ee0b0b1f418cb7",
+                    "ipv6_cidr_block": "",
+                    "ipv6_cidr_block_association_id": "",
+                    "map_public_ip_on_launch": false,
+                    "outpost_arn": "",
+                    "owner_id": "200849096175",
+                    "tags": {
+                        "Name": "wireguard"
+                    },
+                    "timeouts": null,
+                    "vpc_id": "vpc-04271c0798305c3b8"
+                },
+                "after": {
+                    "arn": "arn:aws:ec2:eu-west-1:200849096175:subnet/subnet-0a4ee0b0b1f418cb7",
+                    "assign_ipv6_address_on_creation": false,
+                    "availability_zone": "eu-west-1b",
+                    "availability_zone_id": "euw1-az3",
+                    "cidr_block": "10.8.0.0/24",
+                    "id": "subnet-0a4ee0b0b1f418cb7",
+                    "ipv6_cidr_block": "",
+                    "ipv6_cidr_block_association_id": "",
+                    "map_public_ip_on_launch": false,
+                    "outpost_arn": "",
+                    "owner_id": "200849096175",
+                    "tags": {
+                        "Name": "wireguard"
+                    },
+                    "timeouts": null,
+                    "vpc_id": "vpc-04271c0798305c3b8"
+                },
+                "after_unknown": {},
+                "before_sensitive": {
+                    "tags": {}
+                },
+                "after_sensitive": {
+                    "tags": {}
+                }
+            }
+        },
+        {
+            "address": "aws_vpc.wireguard",
+            "mode": "managed",
+            "type": "aws_vpc",
+            "name": "wireguard",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+                "actions": [
+                    "no-op"
+                ],
+                "before": {
+                    "arn": "arn:aws:ec2:eu-west-1:200849096175:vpc/vpc-04271c0798305c3b8",
+                    "assign_generated_ipv6_cidr_block": false,
+                    "cidr_block": "10.8.0.0/16",
+                    "default_network_acl_id": "acl-0fbcbf853ff1629e0",
+                    "default_route_table_id": "rtb-00c111d9b42f675f5",
+                    "default_security_group_id": "sg-0815a04ff65739981",
+                    "dhcp_options_id": "dopt-07b18497a5c308861",
+                    "enable_classiclink": false,
+                    "enable_classiclink_dns_support": false,
+                    "enable_dns_hostnames": true,
+                    "enable_dns_support": true,
+                    "id": "vpc-04271c0798305c3b8",
+                    "instance_tenancy": "default",
+                    "ipv6_association_id": "",
+                    "ipv6_cidr_block": "",
+                    "main_route_table_id": "rtb-00c111d9b42f675f5",
+                    "owner_id": "200849096175",
+                    "tags": {
+                        "Name": "wireguard"
+                    }
+                },
+                "after": {
+                    "arn": "arn:aws:ec2:eu-west-1:200849096175:vpc/vpc-04271c0798305c3b8",
+                    "assign_generated_ipv6_cidr_block": false,
+                    "cidr_block": "10.8.0.0/16",
+                    "default_network_acl_id": "acl-0fbcbf853ff1629e0",
+                    "default_route_table_id": "rtb-00c111d9b42f675f5",
+                    "default_security_group_id": "sg-0815a04ff65739981",
+                    "dhcp_options_id": "dopt-07b18497a5c308861",
+                    "enable_classiclink": false,
+                    "enable_classiclink_dns_support": false,
+                    "enable_dns_hostnames": true,
+                    "enable_dns_support": true,
+                    "id": "vpc-04271c0798305c3b8",
+                    "instance_tenancy": "default",
+                    "ipv6_association_id": "",
+                    "ipv6_cidr_block": "",
+                    "main_route_table_id": "rtb-00c111d9b42f675f5",
+                    "owner_id": "200849096175",
+                    "tags": {
+                        "Name": "wireguard"
+                    }
+                },
+                "after_unknown": {},
+                "before_sensitive": {
+                    "tags": {}
+                },
+                "after_sensitive": {
+                    "tags": {}
+                }
+            }
+        },
+        {
+            "address": "aws_vpc_dhcp_options.dns_resolver",
+            "mode": "managed",
+            "type": "aws_vpc_dhcp_options",
+            "name": "dns_resolver",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+                "actions": [
+                    "no-op"
+                ],
+                "before": {
+                    "arn": "arn:aws:ec2:eu-west-1:200849096175:dhcp-options/dopt-07b18497a5c308861",
+                    "domain_name": null,
+                    "domain_name_servers": [
+                        "1.1.1.1",
+                        "1.0.0.1"
+                    ],
+                    "id": "dopt-07b18497a5c308861",
+                    "netbios_name_servers": null,
+                    "netbios_node_type": null,
+                    "ntp_servers": null,
+                    "owner_id": "200849096175",
+                    "tags": {}
+                },
+                "after": {
+                    "arn": "arn:aws:ec2:eu-west-1:200849096175:dhcp-options/dopt-07b18497a5c308861",
+                    "domain_name": null,
+                    "domain_name_servers": [
+                        "1.1.1.1",
+                        "1.0.0.1"
+                    ],
+                    "id": "dopt-07b18497a5c308861",
+                    "netbios_name_servers": null,
+                    "netbios_node_type": null,
+                    "ntp_servers": null,
+                    "owner_id": "200849096175",
+                    "tags": {}
+                },
+                "after_unknown": {},
+                "before_sensitive": {
+                    "domain_name_servers": [
+                        false,
+                        false
+                    ],
+                    "tags": {}
+                },
+                "after_sensitive": {
+                    "domain_name_servers": [
+                        false,
+                        false
+                    ],
+                    "tags": {}
+                }
+            }
+        },
+        {
+            "address": "aws_vpc_dhcp_options_association.dns_resolver",
+            "mode": "managed",
+            "type": "aws_vpc_dhcp_options_association",
+            "name": "dns_resolver",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+                "actions": [
+                    "no-op"
+                ],
+                "before": {
+                    "dhcp_options_id": "dopt-07b18497a5c308861",
+                    "id": "dopt-07b18497a5c308861-vpc-04271c0798305c3b8",
+                    "vpc_id": "vpc-04271c0798305c3b8"
+                },
+                "after": {
+                    "dhcp_options_id": "dopt-07b18497a5c308861",
+                    "id": "dopt-07b18497a5c308861-vpc-04271c0798305c3b8",
+                    "vpc_id": "vpc-04271c0798305c3b8"
+                },
+                "after_unknown": {},
+                "before_sensitive": {},
+                "after_sensitive": {}
+            }
+        },
+        {
+            "address": "module.wireguard.aws_autoscaling_group.wireguard_asg",
+            "module_address": "module.wireguard",
+            "mode": "managed",
+            "type": "aws_autoscaling_group",
+            "name": "wireguard_asg",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+                "actions": [
+                    "create",
+                    "delete"
+                ],
+                "before": {
+                    "arn": "arn:aws:autoscaling:eu-west-1:200849096175:autoScalingGroup:1c7e14ad-8742-47c1-a914-15874c6efb48:autoScalingGroupName/wireguard-prod-20210825125556421700000001",
+                    "availability_zones": [
+                        "eu-west-1b"
+                    ],
+                    "default_cooldown": 300,
+                    "desired_capacity": 1,
+                    "enabled_metrics": [],
+                    "force_delete": false,
+                    "health_check_grace_period": 300,
+                    "health_check_type": "EC2",
+                    "id": "wireguard-prod-20210825125556421700000001",
+                    "initial_lifecycle_hook": [],
+                    "launch_configuration": "wireguard-prod-20210825125556421700000001",
+                    "launch_template": [],
+                    "load_balancers": [],
+                    "max_instance_lifetime": 0,
+                    "max_size": 1,
+                    "metrics_granularity": "1Minute",
+                    "min_elb_capacity": null,
+                    "min_size": 1,
+                    "mixed_instances_policy": [],
+                    "name": "wireguard-prod-20210825125556421700000001",
+                    "name_prefix": null,
+                    "placement_group": "",
+                    "protect_from_scale_in": false,
+                    "service_linked_role_arn": "arn:aws:iam::200849096175:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling",
+                    "suspended_processes": [],
+                    "tag": [],
+                    "tags": [
+                        {
+                            "key": "Name",
+                            "propagate_at_launch": "true",
+                            "value": "wireguard-prod-20210825125556421700000001"
+                        },
+                        {
+                            "key": "Project",
+                            "propagate_at_launch": "true",
+                            "value": "wireguard"
+                        },
+                        {
+                            "key": "env",
+                            "propagate_at_launch": "true",
+                            "value": "prod"
+                        },
+                        {
+                            "key": "tf-managed",
+                            "propagate_at_launch": "true",
+                            "value": "True"
+                        }
+                    ],
+                    "target_group_arns": [],
+                    "termination_policies": [
+                        "OldestLaunchConfiguration",
+                        "OldestInstance"
+                    ],
+                    "timeouts": null,
+                    "vpc_zone_identifier": [
+                        "subnet-0a4ee0b0b1f418cb7"
+                    ],
+                    "wait_for_capacity_timeout": "10m",
+                    "wait_for_elb_capacity": null
+                },
+                "after": {
+                    "desired_capacity": 1,
+                    "enabled_metrics": null,
+                    "force_delete": false,
+                    "health_check_grace_period": 300,
+                    "health_check_type": "EC2",
+                    "initial_lifecycle_hook": [],
+                    "launch_template": [],
+                    "max_instance_lifetime": null,
+                    "max_size": 1,
+                    "metrics_granularity": "1Minute",
+                    "min_elb_capacity": null,
+                    "min_size": 1,
+                    "mixed_instances_policy": [],
+                    "name_prefix": null,
+                    "placement_group": null,
+                    "protect_from_scale_in": false,
+                    "suspended_processes": null,
+                    "tag": [],
+                    "tags": [
+                        {
+                            "key": "Project",
+                            "propagate_at_launch": "true",
+                            "value": "wireguard"
+                        },
+                        {
+                            "key": "env",
+                            "propagate_at_launch": "true",
+                            "value": "prod"
+                        },
+                        {
+                            "key": "tf-managed",
+                            "propagate_at_launch": "true",
+                            "value": "True"
+                        }
+                    ],
+                    "termination_policies": [
+                        "OldestLaunchConfiguration",
+                        "OldestInstance"
+                    ],
+                    "timeouts": null,
+                    "vpc_zone_identifier": [
+                        "subnet-0a4ee0b0b1f418cb7"
+                    ],
+                    "wait_for_capacity_timeout": "10m",
+                    "wait_for_elb_capacity": null
+                },
+                "after_unknown": {
+                    "arn": true,
+                    "availability_zones": true,
+                    "default_cooldown": true,
+                    "id": true,
+                    "initial_lifecycle_hook": [],
+                    "launch_configuration": true,
+                    "launch_template": [],
+                    "load_balancers": true,
+                    "mixed_instances_policy": [],
+                    "name": true,
+                    "service_linked_role_arn": true,
+                    "tag": [],
+                    "tags": [
+                        {},
+                        {},
+                        {},
+                        true
+                    ],
+                    "target_group_arns": true,
+                    "termination_policies": [
+                        false,
+                        false
+                    ],
+                    "vpc_zone_identifier": [
+                        false
+                    ]
+                },
+                "before_sensitive": {
+                    "availability_zones": [
+                        false
+                    ],
+                    "enabled_metrics": [],
+                    "initial_lifecycle_hook": [],
+                    "launch_template": [],
+                    "load_balancers": [],
+                    "mixed_instances_policy": [],
+                    "suspended_processes": [],
+                    "tag": [],
+                    "tags": [
+                        {},
+                        {},
+                        {},
+                        {}
+                    ],
+                    "target_group_arns": [],
+                    "termination_policies": [
+                        false,
+                        false
+                    ],
+                    "vpc_zone_identifier": [
+                        false
+                    ]
+                },
+                "after_sensitive": {
+                    "availability_zones": [],
+                    "initial_lifecycle_hook": [],
+                    "launch_template": [],
+                    "load_balancers": [],
+                    "mixed_instances_policy": [],
+                    "tag": [],
+                    "tags": [
+                        {},
+                        {},
+                        {},
+                        {}
+                    ],
+                    "target_group_arns": [],
+                    "termination_policies": [
+                        false,
+                        false
+                    ],
+                    "vpc_zone_identifier": [
+                        false
+                    ]
+                },
+                "replace_paths": [
+                    [
+                        "name"
+                    ]
+                ]
+            },
+            "action_reason": "replace_because_cannot_update"
+        },
+        {
+            "address": "module.wireguard.aws_launch_configuration.wireguard_launch_config",
+            "module_address": "module.wireguard",
+            "mode": "managed",
+            "type": "aws_launch_configuration",
+            "name": "wireguard_launch_config",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+                "actions": [
+                    "create",
+                    "delete"
+                ],
+                "before": {
+                    "arn": "arn:aws:autoscaling:eu-west-1:200849096175:launchConfiguration:f8b63575-f390-4a49-add5-ace4d3dec81b:launchConfigurationName/wireguard-prod-20210825125556421700000001",
+                    "associate_public_ip_address": true,
+                    "ebs_block_device": [],
+                    "ebs_optimized": false,
+                    "enable_monitoring": true,
+                    "ephemeral_block_device": [],
+                    "iam_instance_profile": "",
+                    "id": "wireguard-prod-20210825125556421700000001",
+                    "image_id": "ami-09186ab28544ce472",
+                    "instance_type": "t2.micro",
+                    "key_name": "wireguard-key",
+                    "name": "wireguard-prod-20210825125556421700000001",
+                    "name_prefix": "wireguard-prod-",
+                    "placement_tenancy": null,
+                    "root_block_device": [],
+                    "security_groups": [
+                        "sg-036f38f6586e05d30"
+                    ],
+                    "spot_price": "",
+                    "user_data": "7549abf748a3eaca063ff2b3a9413615e77bd4cf",
+                    "user_data_base64": null,
+                    "vpc_classic_link_id": "",
+                    "vpc_classic_link_security_groups": []
+                },
+                "after": {
+                    "associate_public_ip_address": false,
+                    "enable_monitoring": true,
+                    "ephemeral_block_device": [],
+                    "iam_instance_profile": null,
+                    "image_id": "ami-09186ab28544ce472",
+                    "instance_type": "t2.micro",
+                    "key_name": "wireguard-key",
+                    "name_prefix": "wireguard-prod-",
+                    "placement_tenancy": null,
+                    "security_groups": [
+                        "sg-036f38f6586e05d30"
+                    ],
+                    "spot_price": null,
+                    "user_data": "7549abf748a3eaca063ff2b3a9413615e77bd4cf",
+                    "user_data_base64": null,
+                    "vpc_classic_link_id": null,
+                    "vpc_classic_link_security_groups": null
+                },
+                "after_unknown": {
+                    "arn": true,
+                    "ebs_block_device": true,
+                    "ebs_optimized": true,
+                    "ephemeral_block_device": [],
+                    "id": true,
+                    "name": true,
+                    "root_block_device": true,
+                    "security_groups": [
+                        false
+                    ]
+                },
+                "before_sensitive": {
+                    "ebs_block_device": [],
+                    "ephemeral_block_device": [],
+                    "root_block_device": [],
+                    "security_groups": [
+                        false
+                    ],
+                    "vpc_classic_link_security_groups": []
+                },
+                "after_sensitive": {
+                    "ebs_block_device": [],
+                    "ephemeral_block_device": [],
+                    "root_block_device": [],
+                    "security_groups": [
+                        false
+                    ]
+                },
+                "replace_paths": [
+                    [
+                        "associate_public_ip_address"
+                    ]
+                ]
+            },
+            "action_reason": "replace_because_cannot_update"
+        },
+        {
+            "address": "module.wireguard.aws_security_group.sg_wireguard_admin",
+            "module_address": "module.wireguard",
+            "mode": "managed",
+            "type": "aws_security_group",
+            "name": "sg_wireguard_admin",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+                "actions": [
+                    "no-op"
+                ],
+                "before": {
+                    "arn": "arn:aws:ec2:eu-west-1:200849096175:security-group/sg-060416cd35561f0e7",
+                    "description": "Terraform Managed. Allow admin traffic to internal resources from VPN",
+                    "egress": [
+                        {
+                            "cidr_blocks": [
+                                "0.0.0.0/0"
+                            ],
+                            "description": "",
+                            "from_port": 0,
+                            "ipv6_cidr_blocks": [],
+                            "prefix_list_ids": [],
+                            "protocol": "-1",
+                            "security_groups": [],
+                            "self": false,
+                            "to_port": 0
+                        }
+                    ],
+                    "id": "sg-060416cd35561f0e7",
+                    "ingress": [
+                        {
+                            "cidr_blocks": [],
+                            "description": "",
+                            "from_port": 0,
+                            "ipv6_cidr_blocks": [],
+                            "prefix_list_ids": [],
+                            "protocol": "-1",
+                            "security_groups": [
+                                "sg-036f38f6586e05d30"
+                            ],
+                            "self": false,
+                            "to_port": 0
+                        },
+                        {
+                            "cidr_blocks": [],
+                            "description": "",
+                            "from_port": 8,
+                            "ipv6_cidr_blocks": [],
+                            "prefix_list_ids": [],
+                            "protocol": "icmp",
+                            "security_groups": [
+                                "sg-036f38f6586e05d30"
+                            ],
+                            "self": false,
+                            "to_port": 0
+                        }
+                    ],
+                    "name": "wireguard-prod-admin",
+                    "name_prefix": null,
+                    "owner_id": "200849096175",
+                    "revoke_rules_on_delete": false,
+                    "tags": {
+                        "Name": "wireguard-prod-admin",
+                        "Project": "vpn",
+                        "env": "prod",
+                        "tf-managed": "True"
+                    },
+                    "timeouts": null,
+                    "vpc_id": "vpc-04271c0798305c3b8"
+                },
+                "after": {
+                    "arn": "arn:aws:ec2:eu-west-1:200849096175:security-group/sg-060416cd35561f0e7",
+                    "description": "Terraform Managed. Allow admin traffic to internal resources from VPN",
+                    "egress": [
+                        {
+                            "cidr_blocks": [
+                                "0.0.0.0/0"
+                            ],
+                            "description": "",
+                            "from_port": 0,
+                            "ipv6_cidr_blocks": [],
+                            "prefix_list_ids": [],
+                            "protocol": "-1",
+                            "security_groups": [],
+                            "self": false,
+                            "to_port": 0
+                        }
+                    ],
+                    "id": "sg-060416cd35561f0e7",
+                    "ingress": [
+                        {
+                            "cidr_blocks": [],
+                            "description": "",
+                            "from_port": 0,
+                            "ipv6_cidr_blocks": [],
+                            "prefix_list_ids": [],
+                            "protocol": "-1",
+                            "security_groups": [
+                                "sg-036f38f6586e05d30"
+                            ],
+                            "self": false,
+                            "to_port": 0
+                        },
+                        {
+                            "cidr_blocks": [],
+                            "description": "",
+                            "from_port": 8,
+                            "ipv6_cidr_blocks": [],
+                            "prefix_list_ids": [],
+                            "protocol": "icmp",
+                            "security_groups": [
+                                "sg-036f38f6586e05d30"
+                            ],
+                            "self": false,
+                            "to_port": 0
+                        }
+                    ],
+                    "name": "wireguard-prod-admin",
+                    "name_prefix": null,
+                    "owner_id": "200849096175",
+                    "revoke_rules_on_delete": false,
+                    "tags": {
+                        "Name": "wireguard-prod-admin",
+                        "Project": "vpn",
+                        "env": "prod",
+                        "tf-managed": "True"
+                    },
+                    "timeouts": null,
+                    "vpc_id": "vpc-04271c0798305c3b8"
+                },
+                "after_unknown": {},
+                "before_sensitive": {
+                    "egress": [
+                        {
+                            "cidr_blocks": [
+                                false
+                            ],
+                            "ipv6_cidr_blocks": [],
+                            "prefix_list_ids": [],
+                            "security_groups": []
+                        }
+                    ],
+                    "ingress": [
+                        {
+                            "cidr_blocks": [],
+                            "ipv6_cidr_blocks": [],
+                            "prefix_list_ids": [],
+                            "security_groups": [
+                                false
+                            ]
+                        },
+                        {
+                            "cidr_blocks": [],
+                            "ipv6_cidr_blocks": [],
+                            "prefix_list_ids": [],
+                            "security_groups": [
+                                false
+                            ]
+                        }
+                    ],
+                    "tags": {}
+                },
+                "after_sensitive": {
+                    "egress": [
+                        {
+                            "cidr_blocks": [
+                                false
+                            ],
+                            "ipv6_cidr_blocks": [],
+                            "prefix_list_ids": [],
+                            "security_groups": []
+                        }
+                    ],
+                    "ingress": [
+                        {
+                            "cidr_blocks": [],
+                            "ipv6_cidr_blocks": [],
+                            "prefix_list_ids": [],
+                            "security_groups": [
+                                false
+                            ]
+                        },
+                        {
+                            "cidr_blocks": [],
+                            "ipv6_cidr_blocks": [],
+                            "prefix_list_ids": [],
+                            "security_groups": [
+                                false
+                            ]
+                        }
+                    ],
+                    "tags": {}
+                }
+            }
+        },
+        {
+            "address": "module.wireguard.aws_security_group.sg_wireguard_external",
+            "module_address": "module.wireguard",
+            "mode": "managed",
+            "type": "aws_security_group",
+            "name": "sg_wireguard_external",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+                "actions": [
+                    "no-op"
+                ],
+                "before": {
+                    "arn": "arn:aws:ec2:eu-west-1:200849096175:security-group/sg-036f38f6586e05d30",
+                    "description": "Terraform Managed. Allow Wireguard client traffic from internet.",
+                    "egress": [
+                        {
+                            "cidr_blocks": [
+                                "0.0.0.0/0"
+                            ],
+                            "description": "",
+                            "from_port": 0,
+                            "ipv6_cidr_blocks": [],
+                            "prefix_list_ids": [],
+                            "protocol": "-1",
+                            "security_groups": [],
+                            "self": false,
+                            "to_port": 0
+                        }
+                    ],
+                    "id": "sg-036f38f6586e05d30",
+                    "ingress": [
+                        {
+                            "cidr_blocks": [
+                                "0.0.0.0/0"
+                            ],
+                            "description": "",
+                            "from_port": 51820,
+                            "ipv6_cidr_blocks": [],
+                            "prefix_list_ids": [],
+                            "protocol": "udp",
+                            "security_groups": [],
+                            "self": false,
+                            "to_port": 51820
+                        },
+                        {
+                            "cidr_blocks": [
+                                "10.8.0.0/24"
+                            ],
+                            "description": "",
+                            "from_port": 22,
+                            "ipv6_cidr_blocks": [],
+                            "prefix_list_ids": [],
+                            "protocol": "tcp",
+                            "security_groups": [],
+                            "self": false,
+                            "to_port": 22
+                        }
+                    ],
+                    "name": "wireguard-prod-external",
+                    "name_prefix": null,
+                    "owner_id": "200849096175",
+                    "revoke_rules_on_delete": false,
+                    "tags": {
+                        "Name": "wireguard-prod-external",
+                        "Project": "wireguard",
+                        "env": "prod",
+                        "tf-managed": "True"
+                    },
+                    "timeouts": null,
+                    "vpc_id": "vpc-04271c0798305c3b8"
+                },
+                "after": {
+                    "arn": "arn:aws:ec2:eu-west-1:200849096175:security-group/sg-036f38f6586e05d30",
+                    "description": "Terraform Managed. Allow Wireguard client traffic from internet.",
+                    "egress": [
+                        {
+                            "cidr_blocks": [
+                                "0.0.0.0/0"
+                            ],
+                            "description": "",
+                            "from_port": 0,
+                            "ipv6_cidr_blocks": [],
+                            "prefix_list_ids": [],
+                            "protocol": "-1",
+                            "security_groups": [],
+                            "self": false,
+                            "to_port": 0
+                        }
+                    ],
+                    "id": "sg-036f38f6586e05d30",
+                    "ingress": [
+                        {
+                            "cidr_blocks": [
+                                "0.0.0.0/0"
+                            ],
+                            "description": "",
+                            "from_port": 51820,
+                            "ipv6_cidr_blocks": [],
+                            "prefix_list_ids": [],
+                            "protocol": "udp",
+                            "security_groups": [],
+                            "self": false,
+                            "to_port": 51820
+                        },
+                        {
+                            "cidr_blocks": [
+                                "10.8.0.0/24"
+                            ],
+                            "description": "",
+                            "from_port": 22,
+                            "ipv6_cidr_blocks": [],
+                            "prefix_list_ids": [],
+                            "protocol": "tcp",
+                            "security_groups": [],
+                            "self": false,
+                            "to_port": 22
+                        }
+                    ],
+                    "name": "wireguard-prod-external",
+                    "name_prefix": null,
+                    "owner_id": "200849096175",
+                    "revoke_rules_on_delete": false,
+                    "tags": {
+                        "Name": "wireguard-prod-external",
+                        "Project": "wireguard",
+                        "env": "prod",
+                        "tf-managed": "True"
+                    },
+                    "timeouts": null,
+                    "vpc_id": "vpc-04271c0798305c3b8"
+                },
+                "after_unknown": {},
+                "before_sensitive": {
+                    "egress": [
+                        {
+                            "cidr_blocks": [
+                                false
+                            ],
+                            "ipv6_cidr_blocks": [],
+                            "prefix_list_ids": [],
+                            "security_groups": []
+                        }
+                    ],
+                    "ingress": [
+                        {
+                            "cidr_blocks": [
+                                false
+                            ],
+                            "ipv6_cidr_blocks": [],
+                            "prefix_list_ids": [],
+                            "security_groups": []
+                        },
+                        {
+                            "cidr_blocks": [
+                                false
+                            ],
+                            "ipv6_cidr_blocks": [],
+                            "prefix_list_ids": [],
+                            "security_groups": []
+                        }
+                    ],
+                    "tags": {}
+                },
+                "after_sensitive": {
+                    "egress": [
+                        {
+                            "cidr_blocks": [
+                                false
+                            ],
+                            "ipv6_cidr_blocks": [],
+                            "prefix_list_ids": [],
+                            "security_groups": []
+                        }
+                    ],
+                    "ingress": [
+                        {
+                            "cidr_blocks": [
+                                false
+                            ],
+                            "ipv6_cidr_blocks": [],
+                            "prefix_list_ids": [],
+                            "security_groups": []
+                        },
+                        {
+                            "cidr_blocks": [
+                                false
+                            ],
+                            "ipv6_cidr_blocks": [],
+                            "prefix_list_ids": [],
+                            "security_groups": []
+                        }
+                    ],
+                    "tags": {}
+                }
+            }
+        },
+        {
+            "address": "module.wireguard.data.aws_instances.wireguards",
+            "module_address": "module.wireguard",
+            "mode": "data",
+            "type": "aws_instances",
+            "name": "wireguards",
+            "provider_name": "registry.terraform.io/hashicorp/aws",
+            "change": {
+                "actions": [
+                    "read"
+                ],
+                "before": {
+                    "filter": null,
+                    "id": "terraform-20210825125708170700000002",
+                    "ids": [
+                        "i-07ca28a7e3bda6213"
+                    ],
+                    "instance_state_names": null,
+                    "instance_tags": {
+                        "Name": "wireguard-prod-20210825125556421700000001",
+                        "Project": "wireguard"
+                    },
+                    "private_ips": [
+                        "10.8.0.201"
+                    ],
+                    "public_ips": [
+                        "54.246.1.201"
+                    ]
+                },
+                "after": {
+                    "filter": [],
+                    "instance_state_names": null,
+                    "instance_tags": {
+                        "Project": "wireguard"
+                    }
+                },
+                "after_unknown": {
+                    "filter": [],
+                    "id": true,
+                    "ids": true,
+                    "instance_tags": {
+                        "Name": true
+                    },
+                    "private_ips": true,
+                    "public_ips": true
+                },
+                "before_sensitive": {
+                    "ids": [
+                        false
+                    ],
+                    "instance_tags": {},
+                    "private_ips": [
+                        false
+                    ],
+                    "public_ips": [
+                        false
+                    ]
+                },
+                "after_sensitive": {
+                    "filter": [],
+                    "ids": [],
+                    "instance_tags": {},
+                    "private_ips": [],
+                    "public_ips": []
+                }
+            }
+        }
+    ],
+    "output_changes": {
+        "wireguard_eips": {
+            "actions": [
+                "update"
+            ],
+            "before": [
+                "54.246.1.201"
+            ],
+            "after_unknown": true,
+            "before_sensitive": false,
+            "after_sensitive": false
+        }
+    },
+    "prior_state": {
+        "format_version": "0.2",
+        "terraform_version": "1.0.5",
+        "values": {
+            "outputs": {
+                "wireguard_eips": {
+                    "sensitive": false,
+                    "value": [
+                        "54.246.1.201"
+                    ]
+                }
+            },
+            "root_module": {
+                "resources": [
+                    {
+                        "address": "aws_internet_gateway.wireguard",
+                        "mode": "managed",
+                        "type": "aws_internet_gateway",
+                        "name": "wireguard",
+                        "provider_name": "registry.terraform.io/hashicorp/aws",
+                        "schema_version": 0,
+                        "values": {
+                            "arn": "arn:aws:ec2:eu-west-1:200849096175:internet-gateway/igw-04f5c4930928cf65e",
+                            "id": "igw-04f5c4930928cf65e",
+                            "owner_id": "200849096175",
+                            "tags": {
+                                "Name": "wireguard"
+                            },
+                            "vpc_id": "vpc-04271c0798305c3b8"
+                        },
+                        "sensitive_values": {
+                            "tags": {}
+                        },
+                        "depends_on": [
+                            "aws_vpc.wireguard"
+                        ]
+                    },
+                    {
+                        "address": "aws_key_pair.wireguard",
+                        "mode": "managed",
+                        "type": "aws_key_pair",
+                        "name": "wireguard",
+                        "provider_name": "registry.terraform.io/hashicorp/aws",
+                        "schema_version": 1,
+                        "values": {
+                            "arn": "arn:aws:ec2:eu-west-1:200849096175:key-pair/wireguard-key",
+                            "fingerprint": "69:c6:9b:60:94:87:3f:ab:3a:83:b5:6a:25:a1:38:2d",
+                            "id": "wireguard-key",
+                            "key_name": "wireguard-key",
+                            "key_name_prefix": null,
+                            "key_pair_id": "key-077f1d3065acfe401",
+                            "public_key": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCv3RRx+olw0RyENAcXkews2UYQiOhs9zkDFbJdalpkZmhA4DHGGAr12nKJW52vfkMJTlXhm7OeurfFAmULA63aCPvSdg2Yk6mkpoiR0Q9RZPeris9pqsmJWy6g29jRV8JBBq1mBWL+qfY3X08NmCI8SP0ebv56nJkMPfUNKaqwAyDoLaIfl4OObli/rpNwIaBtPu4I4GEN++TsrQoU+acbfwLvDQTEWJS0fA3fyhnaCSZR16st5wWo0u12x8vzsxn+Ut9o7CNWT6t4mFZrykarnAMJjxX9NWF8Ta1ww3xZYQtEH4MONgh+2rTLh69lUnx1I7Y9yjqrfqKFq+84v/CIlp9jjL8n+aok+bkHliErboXhVCPUHBUj1GoSnk1dn1TrNs958jN9Pb8zMs7c7oWZKRID/XknTQDVlXb8vl8UCUN8H3Dgv/GyZUaS5YGBklK4GUQRDUpfVQF9F1rt/+DHd8J08Tz/BylrmlrWImiia1yl49kMqZPUSog7zVY4UFaeolv9c8OXqy3Sza1KDAnMQXs7qwW7fLAlF+IeDUPcbVfjwR3fIsD7i7NS4sK/rjLcNa+BGTpZflvlYack4vb93MmNN3+ftYEW3c4oCzN8ago0+FJaIBKCCIjP5kqSTJ81KEAB1ioMJGYdp/a8D8NMEIe69fsWIgISub3G2euxaw== franki@MacBook-Pro.local",
+                            "tags": {}
+                        },
+                        "sensitive_values": {
+                            "tags": {}
+                        }
+                    },
+                    {
+                        "address": "aws_route.wireguard",
+                        "mode": "managed",
+                        "type": "aws_route",
+                        "name": "wireguard",
+                        "provider_name": "registry.terraform.io/hashicorp/aws",
+                        "schema_version": 0,
+                        "values": {
+                            "destination_cidr_block": "0.0.0.0/0",
+                            "destination_ipv6_cidr_block": "",
+                            "destination_prefix_list_id": "",
+                            "egress_only_gateway_id": "",
+                            "gateway_id": "igw-04f5c4930928cf65e",
+                            "id": "r-rtb-00c111d9b42f675f51080289494",
+                            "instance_id": "",
+                            "instance_owner_id": "",
+                            "nat_gateway_id": "",
+                            "network_interface_id": "",
+                            "origin": "CreateRoute",
+                            "route_table_id": "rtb-00c111d9b42f675f5",
+                            "state": "active",
+                            "timeouts": null,
+                            "transit_gateway_id": "",
+                            "vpc_peering_connection_id": ""
+                        },
+                        "sensitive_values": {},
+                        "depends_on": [
+                            "aws_internet_gateway.wireguard",
+                            "aws_vpc.wireguard",
+                            "data.aws_route_table.wireguard"
+                        ]
+                    },
+                    {
+                        "address": "aws_subnet.wireguard",
+                        "mode": "managed",
+                        "type": "aws_subnet",
+                        "name": "wireguard",
+                        "provider_name": "registry.terraform.io/hashicorp/aws",
+                        "schema_version": 1,
+                        "values": {
+                            "arn": "arn:aws:ec2:eu-west-1:200849096175:subnet/subnet-0a4ee0b0b1f418cb7",
+                            "assign_ipv6_address_on_creation": false,
+                            "availability_zone": "eu-west-1b",
+                            "availability_zone_id": "euw1-az3",
+                            "cidr_block": "10.8.0.0/24",
+                            "id": "subnet-0a4ee0b0b1f418cb7",
+                            "ipv6_cidr_block": "",
+                            "ipv6_cidr_block_association_id": "",
+                            "map_public_ip_on_launch": false,
+                            "outpost_arn": "",
+                            "owner_id": "200849096175",
+                            "tags": {
+                                "Name": "wireguard"
+                            },
+                            "timeouts": null,
+                            "vpc_id": "vpc-04271c0798305c3b8"
+                        },
+                        "sensitive_values": {
+                            "tags": {}
+                        },
+                        "depends_on": [
+                            "aws_vpc.wireguard"
+                        ]
+                    },
+                    {
+                        "address": "aws_vpc.wireguard",
+                        "mode": "managed",
+                        "type": "aws_vpc",
+                        "name": "wireguard",
+                        "provider_name": "registry.terraform.io/hashicorp/aws",
+                        "schema_version": 1,
+                        "values": {
+                            "arn": "arn:aws:ec2:eu-west-1:200849096175:vpc/vpc-04271c0798305c3b8",
+                            "assign_generated_ipv6_cidr_block": false,
+                            "cidr_block": "10.8.0.0/16",
+                            "default_network_acl_id": "acl-0fbcbf853ff1629e0",
+                            "default_route_table_id": "rtb-00c111d9b42f675f5",
+                            "default_security_group_id": "sg-0815a04ff65739981",
+                            "dhcp_options_id": "dopt-07b18497a5c308861",
+                            "enable_classiclink": false,
+                            "enable_classiclink_dns_support": false,
+                            "enable_dns_hostnames": true,
+                            "enable_dns_support": true,
+                            "id": "vpc-04271c0798305c3b8",
+                            "instance_tenancy": "default",
+                            "ipv6_association_id": "",
+                            "ipv6_cidr_block": "",
+                            "main_route_table_id": "rtb-00c111d9b42f675f5",
+                            "owner_id": "200849096175",
+                            "tags": {
+                                "Name": "wireguard"
+                            }
+                        },
+                        "sensitive_values": {
+                            "tags": {}
+                        }
+                    },
+                    {
+                        "address": "aws_vpc_dhcp_options.dns_resolver",
+                        "mode": "managed",
+                        "type": "aws_vpc_dhcp_options",
+                        "name": "dns_resolver",
+                        "provider_name": "registry.terraform.io/hashicorp/aws",
+                        "schema_version": 0,
+                        "values": {
+                            "arn": "arn:aws:ec2:eu-west-1:200849096175:dhcp-options/dopt-07b18497a5c308861",
+                            "domain_name": null,
+                            "domain_name_servers": [
+                                "1.1.1.1",
+                                "1.0.0.1"
+                            ],
+                            "id": "dopt-07b18497a5c308861",
+                            "netbios_name_servers": null,
+                            "netbios_node_type": null,
+                            "ntp_servers": null,
+                            "owner_id": "200849096175",
+                            "tags": {}
+                        },
+                        "sensitive_values": {
+                            "domain_name_servers": [
+                                false,
+                                false
+                            ],
+                            "tags": {}
+                        }
+                    },
+                    {
+                        "address": "aws_vpc_dhcp_options_association.dns_resolver",
+                        "mode": "managed",
+                        "type": "aws_vpc_dhcp_options_association",
+                        "name": "dns_resolver",
+                        "provider_name": "registry.terraform.io/hashicorp/aws",
+                        "schema_version": 0,
+                        "values": {
+                            "dhcp_options_id": "dopt-07b18497a5c308861",
+                            "id": "dopt-07b18497a5c308861-vpc-04271c0798305c3b8",
+                            "vpc_id": "vpc-04271c0798305c3b8"
+                        },
+                        "sensitive_values": {},
+                        "depends_on": [
+                            "aws_vpc.wireguard",
+                            "aws_vpc_dhcp_options.dns_resolver"
+                        ]
+                    },
+                    {
+                        "address": "data.aws_route_table.wireguard",
+                        "mode": "data",
+                        "type": "aws_route_table",
+                        "name": "wireguard",
+                        "provider_name": "registry.terraform.io/hashicorp/aws",
+                        "schema_version": 0,
+                        "values": {
+                            "associations": [
+                                {
+                                    "gateway_id": "",
+                                    "main": true,
+                                    "route_table_association_id": "rtbassoc-0755a02d0271cebda",
+                                    "route_table_id": "rtb-00c111d9b42f675f5",
+                                    "subnet_id": ""
+                                }
+                            ],
+                            "filter": null,
+                            "gateway_id": null,
+                            "id": "rtb-00c111d9b42f675f5",
+                            "owner_id": "200849096175",
+                            "route_table_id": "rtb-00c111d9b42f675f5",
+                            "routes": [
+                                {
+                                    "cidr_block": "0.0.0.0/0",
+                                    "egress_only_gateway_id": "",
+                                    "gateway_id": "igw-04f5c4930928cf65e",
+                                    "instance_id": "",
+                                    "ipv6_cidr_block": "",
+                                    "nat_gateway_id": "",
+                                    "network_interface_id": "",
+                                    "transit_gateway_id": "",
+                                    "vpc_peering_connection_id": ""
+                                }
+                            ],
+                            "subnet_id": null,
+                            "tags": {},
+                            "vpc_id": "vpc-04271c0798305c3b8"
+                        },
+                        "sensitive_values": {
+                            "associations": [
+                                {}
+                            ],
+                            "routes": [
+                                {}
+                            ],
+                            "tags": {}
+                        }
+                    }
+                ],
+                "child_modules": [
+                    {
+                        "resources": [
+                            {
+                                "address": "module.wireguard.aws_autoscaling_group.wireguard_asg",
+                                "mode": "managed",
+                                "type": "aws_autoscaling_group",
+                                "name": "wireguard_asg",
+                                "provider_name": "registry.terraform.io/hashicorp/aws",
+                                "schema_version": 0,
+                                "values": {
+                                    "arn": "arn:aws:autoscaling:eu-west-1:200849096175:autoScalingGroup:1c7e14ad-8742-47c1-a914-15874c6efb48:autoScalingGroupName/wireguard-prod-20210825125556421700000001",
+                                    "availability_zones": [
+                                        "eu-west-1b"
+                                    ],
+                                    "default_cooldown": 300,
+                                    "desired_capacity": 1,
+                                    "enabled_metrics": [],
+                                    "force_delete": false,
+                                    "health_check_grace_period": 300,
+                                    "health_check_type": "EC2",
+                                    "id": "wireguard-prod-20210825125556421700000001",
+                                    "initial_lifecycle_hook": [],
+                                    "launch_configuration": "wireguard-prod-20210825125556421700000001",
+                                    "launch_template": [],
+                                    "load_balancers": [],
+                                    "max_instance_lifetime": 0,
+                                    "max_size": 1,
+                                    "metrics_granularity": "1Minute",
+                                    "min_elb_capacity": null,
+                                    "min_size": 1,
+                                    "mixed_instances_policy": [],
+                                    "name": "wireguard-prod-20210825125556421700000001",
+                                    "name_prefix": null,
+                                    "placement_group": "",
+                                    "protect_from_scale_in": false,
+                                    "service_linked_role_arn": "arn:aws:iam::200849096175:role/aws-service-role/autoscaling.amazonaws.com/AWSServiceRoleForAutoScaling",
+                                    "suspended_processes": [],
+                                    "tag": [],
+                                    "tags": [
+                                        {
+                                            "key": "Name",
+                                            "propagate_at_launch": "true",
+                                            "value": "wireguard-prod-20210825125556421700000001"
+                                        },
+                                        {
+                                            "key": "Project",
+                                            "propagate_at_launch": "true",
+                                            "value": "wireguard"
+                                        },
+                                        {
+                                            "key": "env",
+                                            "propagate_at_launch": "true",
+                                            "value": "prod"
+                                        },
+                                        {
+                                            "key": "tf-managed",
+                                            "propagate_at_launch": "true",
+                                            "value": "True"
+                                        }
+                                    ],
+                                    "target_group_arns": [],
+                                    "termination_policies": [
+                                        "OldestLaunchConfiguration",
+                                        "OldestInstance"
+                                    ],
+                                    "timeouts": null,
+                                    "vpc_zone_identifier": [
+                                        "subnet-0a4ee0b0b1f418cb7"
+                                    ],
+                                    "wait_for_capacity_timeout": "10m",
+                                    "wait_for_elb_capacity": null
+                                },
+                                "sensitive_values": {
+                                    "availability_zones": [
+                                        false
+                                    ],
+                                    "enabled_metrics": [],
+                                    "initial_lifecycle_hook": [],
+                                    "launch_template": [],
+                                    "load_balancers": [],
+                                    "mixed_instances_policy": [],
+                                    "suspended_processes": [],
+                                    "tag": [],
+                                    "tags": [
+                                        {},
+                                        {},
+                                        {},
+                                        {}
+                                    ],
+                                    "target_group_arns": [],
+                                    "termination_policies": [
+                                        false,
+                                        false
+                                    ],
+                                    "vpc_zone_identifier": [
+                                        false
+                                    ]
+                                },
+                                "depends_on": [
+                                    "module.wireguard.data.aws_ami.ubuntu",
+                                    "module.wireguard.data.template_file.user_data",
+                                    "module.wireguard.data.template_file.wg_client_data_json",
+                                    "aws_key_pair.wireguard",
+                                    "aws_subnet.wireguard",
+                                    "aws_vpc.wireguard",
+                                    "module.wireguard.aws_launch_configuration.wireguard_launch_config",
+                                    "module.wireguard.aws_security_group.sg_wireguard_external"
+                                ]
+                            },
+                            {
+                                "address": "module.wireguard.aws_launch_configuration.wireguard_launch_config",
+                                "mode": "managed",
+                                "type": "aws_launch_configuration",
+                                "name": "wireguard_launch_config",
+                                "provider_name": "registry.terraform.io/hashicorp/aws",
+                                "schema_version": 0,
+                                "values": {
+                                    "arn": "arn:aws:autoscaling:eu-west-1:200849096175:launchConfiguration:f8b63575-f390-4a49-add5-ace4d3dec81b:launchConfigurationName/wireguard-prod-20210825125556421700000001",
+                                    "associate_public_ip_address": true,
+                                    "ebs_block_device": [],
+                                    "ebs_optimized": false,
+                                    "enable_monitoring": true,
+                                    "ephemeral_block_device": [],
+                                    "iam_instance_profile": "",
+                                    "id": "wireguard-prod-20210825125556421700000001",
+                                    "image_id": "ami-09186ab28544ce472",
+                                    "instance_type": "t2.micro",
+                                    "key_name": "wireguard-key",
+                                    "name": "wireguard-prod-20210825125556421700000001",
+                                    "name_prefix": "wireguard-prod-",
+                                    "placement_tenancy": null,
+                                    "root_block_device": [],
+                                    "security_groups": [
+                                        "sg-036f38f6586e05d30"
+                                    ],
+                                    "spot_price": "",
+                                    "user_data": "7549abf748a3eaca063ff2b3a9413615e77bd4cf",
+                                    "user_data_base64": null,
+                                    "vpc_classic_link_id": "",
+                                    "vpc_classic_link_security_groups": []
+                                },
+                                "sensitive_values": {
+                                    "ebs_block_device": [],
+                                    "ephemeral_block_device": [],
+                                    "root_block_device": [],
+                                    "security_groups": [
+                                        false
+                                    ],
+                                    "vpc_classic_link_security_groups": []
+                                },
+                                "depends_on": [
+                                    "module.wireguard.aws_security_group.sg_wireguard_external",
+                                    "module.wireguard.data.aws_ami.ubuntu",
+                                    "module.wireguard.data.template_file.user_data",
+                                    "module.wireguard.data.template_file.wg_client_data_json",
+                                    "aws_key_pair.wireguard",
+                                    "aws_subnet.wireguard",
+                                    "aws_vpc.wireguard"
+                                ]
+                            },
+                            {
+                                "address": "module.wireguard.aws_security_group.sg_wireguard_admin",
+                                "mode": "managed",
+                                "type": "aws_security_group",
+                                "name": "sg_wireguard_admin",
+                                "provider_name": "registry.terraform.io/hashicorp/aws",
+                                "schema_version": 1,
+                                "values": {
+                                    "arn": "arn:aws:ec2:eu-west-1:200849096175:security-group/sg-060416cd35561f0e7",
+                                    "description": "Terraform Managed. Allow admin traffic to internal resources from VPN",
+                                    "egress": [
+                                        {
+                                            "cidr_blocks": [
+                                                "0.0.0.0/0"
+                                            ],
+                                            "description": "",
+                                            "from_port": 0,
+                                            "ipv6_cidr_blocks": [],
+                                            "prefix_list_ids": [],
+                                            "protocol": "-1",
+                                            "security_groups": [],
+                                            "self": false,
+                                            "to_port": 0
+                                        }
+                                    ],
+                                    "id": "sg-060416cd35561f0e7",
+                                    "ingress": [
+                                        {
+                                            "cidr_blocks": [],
+                                            "description": "",
+                                            "from_port": 0,
+                                            "ipv6_cidr_blocks": [],
+                                            "prefix_list_ids": [],
+                                            "protocol": "-1",
+                                            "security_groups": [
+                                                "sg-036f38f6586e05d30"
+                                            ],
+                                            "self": false,
+                                            "to_port": 0
+                                        },
+                                        {
+                                            "cidr_blocks": [],
+                                            "description": "",
+                                            "from_port": 8,
+                                            "ipv6_cidr_blocks": [],
+                                            "prefix_list_ids": [],
+                                            "protocol": "icmp",
+                                            "security_groups": [
+                                                "sg-036f38f6586e05d30"
+                                            ],
+                                            "self": false,
+                                            "to_port": 0
+                                        }
+                                    ],
+                                    "name": "wireguard-prod-admin",
+                                    "name_prefix": null,
+                                    "owner_id": "200849096175",
+                                    "revoke_rules_on_delete": false,
+                                    "tags": {
+                                        "Name": "wireguard-prod-admin",
+                                        "Project": "vpn",
+                                        "env": "prod",
+                                        "tf-managed": "True"
+                                    },
+                                    "timeouts": null,
+                                    "vpc_id": "vpc-04271c0798305c3b8"
+                                },
+                                "sensitive_values": {
+                                    "egress": [
+                                        {
+                                            "cidr_blocks": [
+                                                false
+                                            ],
+                                            "ipv6_cidr_blocks": [],
+                                            "prefix_list_ids": [],
+                                            "security_groups": []
+                                        }
+                                    ],
+                                    "ingress": [
+                                        {
+                                            "cidr_blocks": [],
+                                            "ipv6_cidr_blocks": [],
+                                            "prefix_list_ids": [],
+                                            "security_groups": [
+                                                false
+                                            ]
+                                        },
+                                        {
+                                            "cidr_blocks": [],
+                                            "ipv6_cidr_blocks": [],
+                                            "prefix_list_ids": [],
+                                            "security_groups": [
+                                                false
+                                            ]
+                                        }
+                                    ],
+                                    "tags": {}
+                                },
+                                "depends_on": [
+                                    "aws_subnet.wireguard",
+                                    "aws_vpc.wireguard",
+                                    "module.wireguard.aws_security_group.sg_wireguard_external"
+                                ]
+                            },
+                            {
+                                "address": "module.wireguard.aws_security_group.sg_wireguard_external",
+                                "mode": "managed",
+                                "type": "aws_security_group",
+                                "name": "sg_wireguard_external",
+                                "provider_name": "registry.terraform.io/hashicorp/aws",
+                                "schema_version": 1,
+                                "values": {
+                                    "arn": "arn:aws:ec2:eu-west-1:200849096175:security-group/sg-036f38f6586e05d30",
+                                    "description": "Terraform Managed. Allow Wireguard client traffic from internet.",
+                                    "egress": [
+                                        {
+                                            "cidr_blocks": [
+                                                "0.0.0.0/0"
+                                            ],
+                                            "description": "",
+                                            "from_port": 0,
+                                            "ipv6_cidr_blocks": [],
+                                            "prefix_list_ids": [],
+                                            "protocol": "-1",
+                                            "security_groups": [],
+                                            "self": false,
+                                            "to_port": 0
+                                        }
+                                    ],
+                                    "id": "sg-036f38f6586e05d30",
+                                    "ingress": [
+                                        {
+                                            "cidr_blocks": [
+                                                "0.0.0.0/0"
+                                            ],
+                                            "description": "",
+                                            "from_port": 51820,
+                                            "ipv6_cidr_blocks": [],
+                                            "prefix_list_ids": [],
+                                            "protocol": "udp",
+                                            "security_groups": [],
+                                            "self": false,
+                                            "to_port": 51820
+                                        },
+                                        {
+                                            "cidr_blocks": [
+                                                "10.8.0.0/24"
+                                            ],
+                                            "description": "",
+                                            "from_port": 22,
+                                            "ipv6_cidr_blocks": [],
+                                            "prefix_list_ids": [],
+                                            "protocol": "tcp",
+                                            "security_groups": [],
+                                            "self": false,
+                                            "to_port": 22
+                                        }
+                                    ],
+                                    "name": "wireguard-prod-external",
+                                    "name_prefix": null,
+                                    "owner_id": "200849096175",
+                                    "revoke_rules_on_delete": false,
+                                    "tags": {
+                                        "Name": "wireguard-prod-external",
+                                        "Project": "wireguard",
+                                        "env": "prod",
+                                        "tf-managed": "True"
+                                    },
+                                    "timeouts": null,
+                                    "vpc_id": "vpc-04271c0798305c3b8"
+                                },
+                                "sensitive_values": {
+                                    "egress": [
+                                        {
+                                            "cidr_blocks": [
+                                                false
+                                            ],
+                                            "ipv6_cidr_blocks": [],
+                                            "prefix_list_ids": [],
+                                            "security_groups": []
+                                        }
+                                    ],
+                                    "ingress": [
+                                        {
+                                            "cidr_blocks": [
+                                                false
+                                            ],
+                                            "ipv6_cidr_blocks": [],
+                                            "prefix_list_ids": [],
+                                            "security_groups": []
+                                        },
+                                        {
+                                            "cidr_blocks": [
+                                                false
+                                            ],
+                                            "ipv6_cidr_blocks": [],
+                                            "prefix_list_ids": [],
+                                            "security_groups": []
+                                        }
+                                    ],
+                                    "tags": {}
+                                },
+                                "depends_on": [
+                                    "aws_subnet.wireguard",
+                                    "aws_vpc.wireguard"
+                                ]
+                            },
+                            {
+                                "address": "module.wireguard.data.aws_ami.ubuntu",
+                                "mode": "data",
+                                "type": "aws_ami",
+                                "name": "ubuntu",
+                                "provider_name": "registry.terraform.io/hashicorp/aws",
+                                "schema_version": 0,
+                                "values": {
+                                    "architecture": "x86_64",
+                                    "arn": "arn:aws:ec2:eu-west-1::image/ami-09186ab28544ce472",
+                                    "block_device_mappings": [
+                                        {
+                                            "device_name": "/dev/sda1",
+                                            "ebs": {
+                                                "delete_on_termination": "true",
+                                                "encrypted": "false",
+                                                "iops": "0",
+                                                "snapshot_id": "snap-0060562225b0cb37e",
+                                                "volume_size": "8",
+                                                "volume_type": "gp2"
+                                            },
+                                            "no_device": "",
+                                            "virtual_name": ""
+                                        },
+                                        {
+                                            "device_name": "/dev/sdb",
+                                            "ebs": {},
+                                            "no_device": "",
+                                            "virtual_name": "ephemeral0"
+                                        },
+                                        {
+                                            "device_name": "/dev/sdc",
+                                            "ebs": {},
+                                            "no_device": "",
+                                            "virtual_name": "ephemeral1"
+                                        }
+                                    ],
+                                    "creation_date": "2021-08-18T20:17:50.000Z",
+                                    "description": "Canonical, Ubuntu, 18.04 LTS, amd64 bionic image build on 2021-08-18",
+                                    "executable_users": null,
+                                    "filter": [
+                                        {
+                                            "name": "name",
+                                            "values": [
+                                                "ubuntu/images/hvm-ssd/ubuntu-*-18.04-amd64-server-*"
+                                            ]
+                                        },
+                                        {
+                                            "name": "virtualization-type",
+                                            "values": [
+                                                "hvm"
+                                            ]
+                                        }
+                                    ],
+                                    "hypervisor": "xen",
+                                    "id": "ami-09186ab28544ce472",
+                                    "image_id": "ami-09186ab28544ce472",
+                                    "image_location": "099720109477/ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-20210818",
+                                    "image_owner_alias": null,
+                                    "image_type": "machine",
+                                    "kernel_id": null,
+                                    "most_recent": true,
+                                    "name": "ubuntu/images/hvm-ssd/ubuntu-bionic-18.04-amd64-server-20210818",
+                                    "name_regex": null,
+                                    "owner_id": "099720109477",
+                                    "owners": [
+                                        "099720109477"
+                                    ],
+                                    "platform": null,
+                                    "product_codes": [],
+                                    "public": true,
+                                    "ramdisk_id": null,
+                                    "root_device_name": "/dev/sda1",
+                                    "root_device_type": "ebs",
+                                    "root_snapshot_id": "snap-0060562225b0cb37e",
+                                    "sriov_net_support": "simple",
+                                    "state": "available",
+                                    "state_reason": {
+                                        "code": "UNSET",
+                                        "message": "UNSET"
+                                    },
+                                    "tags": {},
+                                    "virtualization_type": "hvm"
+                                },
+                                "sensitive_values": {
+                                    "block_device_mappings": [
+                                        {
+                                            "ebs": {}
+                                        },
+                                        {
+                                            "ebs": {}
+                                        },
+                                        {
+                                            "ebs": {}
+                                        }
+                                    ],
+                                    "filter": [
+                                        {
+                                            "values": [
+                                                false
+                                            ]
+                                        },
+                                        {
+                                            "values": [
+                                                false
+                                            ]
+                                        }
+                                    ],
+                                    "owners": [
+                                        false
+                                    ],
+                                    "product_codes": [],
+                                    "state_reason": {},
+                                    "tags": {}
+                                }
+                            },
+                            {
+                                "address": "module.wireguard.data.template_file.user_data",
+                                "mode": "data",
+                                "type": "template_file",
+                                "name": "user_data",
+                                "provider_name": "registry.terraform.io/hashicorp/template",
+                                "schema_version": 0,
+                                "values": {
+                                    "filename": null,
+                                    "id": "6ab191fc5646f9f1e518d18b009e687e79e968930c7fc111d08532e5c5bee6b1",
+                                    "rendered": "#!/bin/bash -v\n\napt-get update -y\napt-get upgrade -y\napt-get install -y wireguard-dkms wireguard-tools \n\numask 077\n#TODO make server public key available outside the vm instance\nwg genkey | tee /tmp/server_privatekey | wg pubkey \u003e /tmp/server_publickey\n\nMYV4IP=$(curl http://169.254.169.254/latest/meta-data/public-ipv4)\n\ncat \u003e /etc/wireguard/wg0.conf \u003c\u003c- EOF\n[Interface]\nAddress = $MYV4IP/24\nPrivateKey = $(cat /tmp/server_privatekey)\nListenPort = 51820\nPostUp   = iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE\nPostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE\n\n[Peer]\nPublicKey = XSGknxaW7PwqiFD061TemUozeTxxafusIRr5dz2fUhw=\nAllowedIPs = 10.8.0.3/32\nPersistentKeepalive = 25\n\nEOF\n\nchown -R root:root /etc/wireguard/\nchmod -R og-rwx /etc/wireguard/*\nsed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/' /etc/sysctl.conf\nsysctl -p\nufw allow ssh\nufw allow 51820/udp\nufw --force enable\nsystemctl enable wg-quick@wg0.service\nsystemctl start wg-quick@wg0.service\n\nMAILJET_AUTH=\"\"\n\nif [ \"$MAILJET_AUTH\" != \"\" ]; then\n\n    # TODO make the list of emails configurable per client ip\n    cat \u003e /tmp/wireguard.email \u003c\u003c- EOF\n    {\n    \"Messages\":[\n        {\n        \"From\": {\n            \"Email\": \"wireguard@fr123k.uk\",\n            \"Name\": \"Wireguard $MYV4IP\"\n        },\n        \"To\": [\n            {\n            \"Email\": \"fr12_k@yahoo.com\",\n            \"Name\": \"Frank\"\n            }\n        ],\n        \"Subject\": \"Wireguard publickey\",\n        \"TextPart\": \"The wireguard public key is $(cat /tmp/server_publickey) and the ip address $MYV4IP\",\n        \"CustomID\": \"Wireguard Publickey\"\n        }\n    ]\n    }\nEOF\n\n    curl -s -X POST \\\n    --user \"\" \\\n    https://api.mailjet.com/v3.1/send \\\n    -H 'Content-Type: application/json' \\\n    --data \"@/tmp/wireguard.email\"\nfi\n",
+                                    "template": "#!/bin/bash -v\n\napt-get update -y\napt-get upgrade -y\napt-get install -y wireguard-dkms wireguard-tools \n\numask 077\n#TODO make server public key available outside the vm instance\nwg genkey | tee /tmp/server_privatekey | wg pubkey \u003e /tmp/server_publickey\n\nMYV4IP=$(curl http://169.254.169.254/latest/meta-data/public-ipv4)\n\ncat \u003e /etc/wireguard/wg0.conf \u003c\u003c- EOF\n[Interface]\nAddress = $MYV4IP/24\nPrivateKey = $(cat /tmp/server_privatekey)\nListenPort = ${wg_server_port}\nPostUp   = iptables -A FORWARD -i %i -j ACCEPT; iptables -A FORWARD -o %i -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE\nPostDown = iptables -D FORWARD -i %i -j ACCEPT; iptables -D FORWARD -o %i -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE\n\n${peers}\nEOF\n\nchown -R root:root /etc/wireguard/\nchmod -R og-rwx /etc/wireguard/*\nsed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/' /etc/sysctl.conf\nsysctl -p\nufw allow ssh\nufw allow ${wg_server_port}/udp\nufw --force enable\nsystemctl enable wg-quick@wg0.service\nsystemctl start wg-quick@wg0.service\n\nMAILJET_AUTH=\"${mailjet_api_credentials}\"\n\nif [ \"$MAILJET_AUTH\" != \"\" ]; then\n\n    # TODO make the list of emails configurable per client ip\n    cat \u003e /tmp/wireguard.email \u003c\u003c- EOF\n    {\n    \"Messages\":[\n        {\n        \"From\": {\n            \"Email\": \"wireguard@fr123k.uk\",\n            \"Name\": \"Wireguard $MYV4IP\"\n        },\n        \"To\": [\n            {\n            \"Email\": \"fr12_k@yahoo.com\",\n            \"Name\": \"Frank\"\n            }\n        ],\n        \"Subject\": \"Wireguard publickey\",\n        \"TextPart\": \"The wireguard public key is $(cat /tmp/server_publickey) and the ip address $MYV4IP\",\n        \"CustomID\": \"Wireguard Publickey\"\n        }\n    ]\n    }\nEOF\n\n    curl -s -X POST \\\n    --user \"${mailjet_api_credentials}\" \\\n    https://api.mailjet.com/v3.1/send \\\n    -H 'Content-Type: application/json' \\\n    --data \"@/tmp/wireguard.email\"\nfi\n",
+                                    "vars": {
+                                        "mailjet_api_credentials": "",
+                                        "peers": "[Peer]\nPublicKey = XSGknxaW7PwqiFD061TemUozeTxxafusIRr5dz2fUhw=\nAllowedIPs = 10.8.0.3/32\nPersistentKeepalive = 25\n",
+                                        "wg_server_port": "51820"
+                                    }
+                                },
+                                "sensitive_values": {
+                                    "vars": {}
+                                }
+                            },
+                            {
+                                "address": "module.wireguard.data.template_file.wg_client_data_json[0]",
+                                "mode": "data",
+                                "type": "template_file",
+                                "name": "wg_client_data_json",
+                                "index": 0,
+                                "provider_name": "registry.terraform.io/hashicorp/template",
+                                "schema_version": 0,
+                                "values": {
+                                    "filename": null,
+                                    "id": "9a7618557f895e5688915e4d0d95334dbc4c9fa9552e3010d4e18646adf61487",
+                                    "rendered": "[Peer]\nPublicKey = XSGknxaW7PwqiFD061TemUozeTxxafusIRr5dz2fUhw=\nAllowedIPs = 10.8.0.3/32\nPersistentKeepalive = 25\n",
+                                    "template": "[Peer]\nPublicKey = ${client_pub_key}\nAllowedIPs = ${client_ip}\nPersistentKeepalive = ${persistent_keepalive}\n",
+                                    "vars": {
+                                        "client_ip": "10.8.0.3/32",
+                                        "client_pub_key": "XSGknxaW7PwqiFD061TemUozeTxxafusIRr5dz2fUhw=",
+                                        "persistent_keepalive": "25"
+                                    }
+                                },
+                                "sensitive_values": {
+                                    "vars": {}
+                                }
+                            }
+                        ],
+                        "address": "module.wireguard"
+                    }
+                ]
+            }
+        }
+    },
+    "configuration": {
+        "provider_config": {
+            "aws": {
+                "name": "aws"
+            },
+            "module.wireguard:aws": {
+                "name": "aws",
+                "version_constraint": "~\u003e 2.0",
+                "module_address": "module.wireguard"
+            },
+            "module.wireguard:template": {
+                "name": "template",
+                "version_constraint": "~\u003e 2.0",
+                "module_address": "module.wireguard"
+            }
+        },
+        "root_module": {
+            "outputs": {
+                "wireguard_eips": {
+                    "expression": {
+                        "references": [
+                            "module.wireguard.wireguards_eip",
+                            "module.wireguard"
+                        ]
+                    },
+                    "description": "The list of elastic ip addresses assigned to the wireguard virtual machines."
+                }
+            },
+            "resources": [
+                {
+                    "address": "aws_internet_gateway.wireguard",
+                    "mode": "managed",
+                    "type": "aws_internet_gateway",
+                    "name": "wireguard",
+                    "provider_config_key": "aws",
+                    "expressions": {
+                        "tags": {
+                            "constant_value": {
+                                "Name": "wireguard"
+                            }
+                        },
+                        "vpc_id": {
+                            "references": [
+                                "aws_vpc.wireguard.id",
+                                "aws_vpc.wireguard"
+                            ]
+                        }
+                    },
+                    "schema_version": 0
+                },
+                {
+                    "address": "aws_key_pair.wireguard",
+                    "mode": "managed",
+                    "type": "aws_key_pair",
+                    "name": "wireguard",
+                    "provider_config_key": "aws",
+                    "expressions": {
+                        "key_name": {
+                            "constant_value": "wireguard-key"
+                        },
+                        "public_key": {
+                            "references": [
+                                "path.module"
+                            ]
+                        }
+                    },
+                    "schema_version": 1
+                },
+                {
+                    "address": "aws_route.wireguard",
+                    "mode": "managed",
+                    "type": "aws_route",
+                    "name": "wireguard",
+                    "provider_config_key": "aws",
+                    "expressions": {
+                        "destination_cidr_block": {
+                            "constant_value": "0.0.0.0/0"
+                        },
+                        "gateway_id": {
+                            "references": [
+                                "aws_internet_gateway.wireguard.id",
+                                "aws_internet_gateway.wireguard"
+                            ]
+                        },
+                        "route_table_id": {
+                            "references": [
+                                "data.aws_route_table.wireguard.id",
+                                "data.aws_route_table.wireguard"
+                            ]
+                        }
+                    },
+                    "schema_version": 0
+                },
+                {
+                    "address": "aws_subnet.wireguard",
+                    "mode": "managed",
+                    "type": "aws_subnet",
+                    "name": "wireguard",
+                    "provider_config_key": "aws",
+                    "expressions": {
+                        "cidr_block": {
+                            "references": [
+                                "local.network_cidr"
+                            ]
+                        },
+                        "tags": {
+                            "constant_value": {
+                                "Name": "wireguard"
+                            }
+                        },
+                        "vpc_id": {
+                            "references": [
+                                "aws_vpc.wireguard.id",
+                                "aws_vpc.wireguard"
+                            ]
+                        }
+                    },
+                    "schema_version": 1
+                },
+                {
+                    "address": "aws_vpc.wireguard",
+                    "mode": "managed",
+                    "type": "aws_vpc",
+                    "name": "wireguard",
+                    "provider_config_key": "aws",
+                    "expressions": {
+                        "cidr_block": {
+                            "references": [
+                                "local.network_cidr"
+                            ]
+                        },
+                        "enable_dns_hostnames": {
+                            "constant_value": true
+                        },
+                        "enable_dns_support": {
+                            "constant_value": true
+                        },
+                        "instance_tenancy": {
+                            "constant_value": "default"
+                        },
+                        "tags": {
+                            "constant_value": {
+                                "Name": "wireguard"
+                            }
+                        }
+                    },
+                    "schema_version": 1
+                },
+                {
+                    "address": "aws_vpc_dhcp_options.dns_resolver",
+                    "mode": "managed",
+                    "type": "aws_vpc_dhcp_options",
+                    "name": "dns_resolver",
+                    "provider_config_key": "aws",
+                    "expressions": {
+                        "domain_name_servers": {
+                            "constant_value": [
+                                "1.1.1.1",
+                                "1.0.0.1"
+                            ]
+                        }
+                    },
+                    "schema_version": 0
+                },
+                {
+                    "address": "aws_vpc_dhcp_options_association.dns_resolver",
+                    "mode": "managed",
+                    "type": "aws_vpc_dhcp_options_association",
+                    "name": "dns_resolver",
+                    "provider_config_key": "aws",
+                    "expressions": {
+                        "dhcp_options_id": {
+                            "references": [
+                                "aws_vpc_dhcp_options.dns_resolver.id",
+                                "aws_vpc_dhcp_options.dns_resolver"
+                            ]
+                        },
+                        "vpc_id": {
+                            "references": [
+                                "aws_vpc.wireguard.id",
+                                "aws_vpc.wireguard"
+                            ]
+                        }
+                    },
+                    "schema_version": 0
+                },
+                {
+                    "address": "data.aws_route_table.wireguard",
+                    "mode": "data",
+                    "type": "aws_route_table",
+                    "name": "wireguard",
+                    "provider_config_key": "aws",
+                    "expressions": {
+                        "vpc_id": {
+                            "references": [
+                                "aws_vpc.wireguard.id",
+                                "aws_vpc.wireguard"
+                            ]
+                        }
+                    },
+                    "schema_version": 0
+                }
+            ],
+            "module_calls": {
+                "wireguard": {
+                    "source": "./modules/wireguard/",
+                    "expressions": {
+                        "ssh_key_id": {
+                            "references": [
+                                "aws_key_pair.wireguard.id",
+                                "aws_key_pair.wireguard"
+                            ]
+                        },
+                        "subnet": {
+                            "references": [
+                                "aws_subnet.wireguard"
+                            ]
+                        },
+                        "use_eip": {
+                            "constant_value": false
+                        },
+                        "vpc_id": {
+                            "references": [
+                                "aws_vpc.wireguard.id",
+                                "aws_vpc.wireguard"
+                            ]
+                        },
+                        "wg_client_public_keys": {
+                            "references": [
+                                "aws_subnet.wireguard.cidr_block",
+                                "aws_subnet.wireguard",
+                                "var.client_public_key"
+                            ]
+                        }
+                    },
+                    "module": {
+                        "outputs": {
+                            "vpn_asg_name": {
+                                "expression": {
+                                    "references": [
+                                        "aws_autoscaling_group.wireguard_asg.name",
+                                        "aws_autoscaling_group.wireguard_asg"
+                                    ]
+                                },
+                                "description": "ID of the internal Security Group to associate with other resources needing to be accessed on VPN."
+                            },
+                            "vpn_sg_admin_id": {
+                                "expression": {
+                                    "references": [
+                                        "aws_security_group.sg_wireguard_admin.id",
+                                        "aws_security_group.sg_wireguard_admin"
+                                    ]
+                                },
+                                "description": "ID of the internal Security Group to associate with other resources needing to be accessed on VPN."
+                            },
+                            "vpn_sg_external_id": {
+                                "expression": {
+                                    "references": [
+                                        "aws_security_group.sg_wireguard_external.id",
+                                        "aws_security_group.sg_wireguard_external"
+                                    ]
+                                },
+                                "description": "ID of the external Security Group to associate with the VPN."
+                            },
+                            "wireguards_eip": {
+                                "expression": {
+                                    "references": [
+                                        "data.aws_instances.wireguards.public_ips",
+                                        "data.aws_instances.wireguards"
+                                    ]
+                                },
+                                "description": "The elastic ip address of the wireguard server or servers."
+                            }
+                        },
+                        "resources": [
+                            {
+                                "address": "aws_autoscaling_group.wireguard_asg",
+                                "mode": "managed",
+                                "type": "aws_autoscaling_group",
+                                "name": "wireguard_asg",
+                                "provider_config_key": "wireguard:aws",
+                                "expressions": {
+                                    "desired_capacity": {
+                                        "references": [
+                                            "var.asg_desired_capacity"
+                                        ]
+                                    },
+                                    "health_check_type": {
+                                        "constant_value": "EC2"
+                                    },
+                                    "launch_configuration": {
+                                        "references": [
+                                            "aws_launch_configuration.wireguard_launch_config.name",
+                                            "aws_launch_configuration.wireguard_launch_config"
+                                        ]
+                                    },
+                                    "max_size": {
+                                        "references": [
+                                            "var.asg_max_size"
+                                        ]
+                                    },
+                                    "min_size": {
+                                        "references": [
+                                            "var.asg_min_size"
+                                        ]
+                                    },
+                                    "name": {
+                                        "references": [
+                                            "aws_launch_configuration.wireguard_launch_config.name",
+                                            "aws_launch_configuration.wireguard_launch_config"
+                                        ]
+                                    },
+                                    "tags": {
+                                        "references": [
+                                            "aws_launch_configuration.wireguard_launch_config.name",
+                                            "aws_launch_configuration.wireguard_launch_config",
+                                            "var.env"
+                                        ]
+                                    },
+                                    "target_group_arns": {
+                                        "references": [
+                                            "var.target_group_arns"
+                                        ]
+                                    },
+                                    "termination_policies": {
+                                        "constant_value": [
+                                            "OldestLaunchConfiguration",
+                                            "OldestInstance"
+                                        ]
+                                    },
+                                    "vpc_zone_identifier": {
+                                        "references": [
+                                            "var.subnet.id",
+                                            "var.subnet"
+                                        ]
+                                    }
+                                },
+                                "schema_version": 0
+                            },
+                            {
+                                "address": "aws_launch_configuration.wireguard_launch_config",
+                                "mode": "managed",
+                                "type": "aws_launch_configuration",
+                                "name": "wireguard_launch_config",
+                                "provider_config_key": "wireguard:aws",
+                                "expressions": {
+                                    "associate_public_ip_address": {
+                                        "references": [
+                                            "var.use_eip"
+                                        ]
+                                    },
+                                    "image_id": {
+                                        "references": [
+                                            "data.aws_ami.ubuntu.id",
+                                            "data.aws_ami.ubuntu"
+                                        ]
+                                    },
+                                    "instance_type": {
+                                        "references": [
+                                            "var.instance_type"
+                                        ]
+                                    },
+                                    "key_name": {
+                                        "references": [
+                                            "var.ssh_key_id"
+                                        ]
+                                    },
+                                    "name_prefix": {
+                                        "references": [
+                                            "var.env"
+                                        ]
+                                    },
+                                    "security_groups": {
+                                        "references": [
+                                            "local.security_groups_ids"
+                                        ]
+                                    },
+                                    "user_data": {
+                                        "references": [
+                                            "data.template_file.user_data.rendered",
+                                            "data.template_file.user_data"
+                                        ]
+                                    }
+                                },
+                                "schema_version": 0
+                            },
+                            {
+                                "address": "aws_security_group.sg_wireguard_admin",
+                                "mode": "managed",
+                                "type": "aws_security_group",
+                                "name": "sg_wireguard_admin",
+                                "provider_config_key": "wireguard:aws",
+                                "expressions": {
+                                    "description": {
+                                        "constant_value": "Terraform Managed. Allow admin traffic to internal resources from VPN"
+                                    },
+                                    "name": {
+                                        "references": [
+                                            "var.env"
+                                        ]
+                                    },
+                                    "tags": {
+                                        "references": [
+                                            "var.env",
+                                            "var.env"
+                                        ]
+                                    },
+                                    "vpc_id": {
+                                        "references": [
+                                            "var.vpc_id"
+                                        ]
+                                    }
+                                },
+                                "schema_version": 1
+                            },
+                            {
+                                "address": "aws_security_group.sg_wireguard_external",
+                                "mode": "managed",
+                                "type": "aws_security_group",
+                                "name": "sg_wireguard_external",
+                                "provider_config_key": "wireguard:aws",
+                                "expressions": {
+                                    "description": {
+                                        "constant_value": "Terraform Managed. Allow Wireguard client traffic from internet."
+                                    },
+                                    "name": {
+                                        "references": [
+                                            "var.env"
+                                        ]
+                                    },
+                                    "tags": {
+                                        "references": [
+                                            "var.env",
+                                            "var.env"
+                                        ]
+                                    },
+                                    "vpc_id": {
+                                        "references": [
+                                            "var.vpc_id"
+                                        ]
+                                    }
+                                },
+                                "schema_version": 1
+                            },
+                            {
+                                "address": "data.aws_ami.ubuntu",
+                                "mode": "data",
+                                "type": "aws_ami",
+                                "name": "ubuntu",
+                                "provider_config_key": "wireguard:aws",
+                                "expressions": {
+                                    "filter": [
+                                        {
+                                            "name": {
+                                                "constant_value": "name"
+                                            },
+                                            "values": {
+                                                "constant_value": [
+                                                    "ubuntu/images/hvm-ssd/ubuntu-*-18.04-amd64-server-*"
+                                                ]
+                                            }
+                                        },
+                                        {
+                                            "name": {
+                                                "constant_value": "virtualization-type"
+                                            },
+                                            "values": {
+                                                "constant_value": [
+                                                    "hvm"
+                                                ]
+                                            }
+                                        }
+                                    ],
+                                    "most_recent": {
+                                        "constant_value": true
+                                    },
+                                    "owners": {
+                                        "constant_value": [
+                                            "099720109477"
+                                        ]
+                                    }
+                                },
+                                "schema_version": 0
+                            },
+                            {
+                                "address": "data.aws_instances.wireguards",
+                                "mode": "data",
+                                "type": "aws_instances",
+                                "name": "wireguards",
+                                "provider_config_key": "wireguard:aws",
+                                "expressions": {
+                                    "instance_tags": {
+                                        "references": [
+                                            "local.tags"
+                                        ]
+                                    }
+                                },
+                                "schema_version": 0,
+                                "depends_on": [
+                                    "aws_autoscaling_group.wireguard_asg"
+                                ]
+                            },
+                            {
+                                "address": "data.template_file.user_data",
+                                "mode": "data",
+                                "type": "template_file",
+                                "name": "user_data",
+                                "provider_config_key": "wireguard:template",
+                                "expressions": {
+                                    "template": {
+                                        "references": [
+                                            "path.module"
+                                        ]
+                                    },
+                                    "vars": {
+                                        "references": [
+                                            "var.wg_server_port",
+                                            "var.mailjet_api_credentials",
+                                            "data.template_file.wg_client_data_json"
+                                        ]
+                                    }
+                                },
+                                "schema_version": 0
+                            },
+                            {
+                                "address": "data.template_file.wg_client_data_json",
+                                "mode": "data",
+                                "type": "template_file",
+                                "name": "wg_client_data_json",
+                                "provider_config_key": "wireguard:template",
+                                "expressions": {
+                                    "template": {
+                                        "references": [
+                                            "path.module"
+                                        ]
+                                    },
+                                    "vars": {
+                                        "references": [
+                                            "var.wg_client_public_keys",
+                                            "count.index",
+                                            "var.wg_client_public_keys",
+                                            "count.index",
+                                            "var.wg_persistent_keepalive"
+                                        ]
+                                    }
+                                },
+                                "schema_version": 0,
+                                "count_expression": {
+                                    "references": [
+                                        "var.wg_client_public_keys"
+                                    ]
+                                }
+                            }
+                        ],
+                        "variables": {
+                            "additional_security_group_ids": {
+                                "default": [
+                                    ""
+                                ],
+                                "description": "Additional security groups if provided, default empty"
+                            },
+                            "asg_desired_capacity": {
+                                "default": 1,
+                                "description": "We may want more than one machine in a scaling group, but 1 is recommended."
+                            },
+                            "asg_max_size": {
+                                "default": 1,
+                                "description": "We may want more than one machine in a scaling group, but 1 is recommended."
+                            },
+                            "asg_min_size": {
+                                "default": 1,
+                                "description": "We may want more than one machine in a scaling group, but 1 is recommended."
+                            },
+                            "env": {
+                                "default": "prod",
+                                "description": "The name of environment for WireGuard. Used to differentiate multiple deployments"
+                            },
+                            "instance_type": {
+                                "default": "t2.micro",
+                                "description": "The machine type to launch, some machines may offer higher throughput for higher use cases."
+                            },
+                            "mailjet_api_credentials": {
+                                "default": "",
+                                "description": "The mailjet api credentials in the form API_KEY:SECRET_KEY"
+                            },
+                            "ssh_key_id": {
+                                "description": "A SSH public key ID to add to the VPN instance."
+                            },
+                            "subnet": {
+                                "description": "A subnet aws resource for the Autoscaling Group to use for launching instances. Only a single subnet."
+                            },
+                            "target_group_arns": {
+                                "default": null,
+                                "description": "Running a scaling group behind an LB requires this variable, default null means it won't be included if not set"
+                            },
+                            "use_eip": {
+                                "default": false,
+                                "description": "Whether to enable Elastic IP switching code in user-data on wg server startup. If true, eip_id must also be set to the ID of the Elastic IP."
+                            },
+                            "vpc_id": {
+                                "description": "The VPC ID in which Terraform will launch the resources."
+                            },
+                            "vpn_enabled_ssh": {
+                                "default": true,
+                                "description": "If true the ssh port restricted to the wireguard network range. Otherwise its open for public (0.0.0.0/0)."
+                            },
+                            "wg_client_public_keys": {
+                                "description": "List of maps of client IPs and public keys. See Usage in README for details."
+                            },
+                            "wg_persistent_keepalive": {
+                                "default": 25,
+                                "description": "Persistent Keepalive - useful for helping connection stability over NATs"
+                            },
+                            "wg_server_port": {
+                                "default": 51820,
+                                "description": "Port for the vpn server"
+                            }
+                        }
+                    }
+                }
+            },
+            "variables": {
+                "client_public_key": {
+                    "default": "XSGknxaW7PwqiFD061TemUozeTxxafusIRr5dz2fUhw=",
+                    "description": "The wireguard client public key."
+                },
+                "mailjet_api_credentials": {
+                    "default": "",
+                    "description": "The mailjet api credentials in the form API_KEY:SECRET_KEY"
+                },
+                "vpn_enabled_ssh": {
+                    "default": true,
+                    "description": "If true the ssh port restricted to the wireguard network range. Otherwise its open for public (0.0.0.0/0)."
+                }
+            }
+        }
+    }
+}
